@@ -70,6 +70,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 100px;
 }
 
 .right-content {
@@ -79,9 +80,14 @@ p {
 .right-content svg {
     position: absolute;
     z-index: -1;
+    margin: auto;
+    width: 500px;
 }
 
 .right-content img {
+    height: 60%;
     position: absolute;
     margin: auto;
+    left: 14%;
+    top: 15%;
 }
