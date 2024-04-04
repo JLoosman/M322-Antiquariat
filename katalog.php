@@ -84,7 +84,9 @@
                             <label for="Afrika">Afrika</label><br>
                 </form>
             </div>
-            <div class="books"></div>
+            <div class="books">
+                <?php include("bookCard.php") ?>
+            </div>
         </div>
     </section>
     <?php include("footer.php") ?>
