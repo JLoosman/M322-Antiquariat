@@ -85,12 +85,19 @@
                     </div>
                 </form>
             </div>
-            <div class="books">
+            <div class="book-display">
+                <div class="books">
                 <?php
                 for($i = 0; $i < 18; $i++) {
                     include("bookCard.php");
                 }
                 ?>
+                </div>
+                <div class="site-changer">
+                    <i class="fa-solid fa-angle-left"></i>
+                    <p>Seite 1 von 17</p>
+                    <i class="fa-solid fa-angle-right"></i>
+                </div>
             </div>
         </div>
     </section>

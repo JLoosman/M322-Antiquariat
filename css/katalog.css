@@ -101,9 +101,21 @@ section {
 .filter-group > * {
     margin-top: 12px;
 }
+.book-display {
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .books {
-    width: 70%;
     display: flex;
     flex-flow: row wrap;
+}
+
+.site-changer {
+    display: flex;
+    align-items: center;
+    margin-right: 200px;
 }
