@@ -1,0 +1,28 @@
+.logo {
+    width: 30px;
+}
+
+header a {
+    color: #000;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+
+header {
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+}
+
+header .group {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+header .group .nav-item {
+    margin: 0 10px;
+    padding: 5px 20px;
+}
