@@ -28,7 +28,7 @@
             <div class="search-right">
                 <h3>Sortieren nach:</h3>
                 <div class="dropdown">
-
+                    <p>Name</p>
                     <i class="fa-solid fa-angle-down"></i>
                 </div>
                 <i class="fa-solid fa-circle-chevron-down"></i>
@@ -54,7 +54,7 @@
                         <input type="radio" id="Ausgelehnt" value="Ausgelehnt" name="Verfügbarkeit">
                             <label for="Ausgelehnt">Ausgelehnt</label><br>
                     </div>
-                    <div class="filter-group"></div>
+                    <div class="filter-group">
                         <p>Kategorie</p>
                         <input type="radio" id="Alte Drucke, Bibeln" value="1" name="Kategorie">
                             <label for="Alte Drucke, Bibeln">Alte Drucke, Bibeln</label><br>
@@ -82,10 +82,15 @@
                             <label for="Ozeanien">Ozeanien</label><br>
                         <input type="radio" id="Afrika" value="13" name="Kategorie">
                             <label for="Afrika">Afrika</label><br>
+                    </div>
                 </form>
             </div>
             <div class="books">
-                <?php include("bookCard.php") ?>
+                <?php
+                for($i = 0; $i < 18; $i++) {
+                    include("bookCard.php");
+                }
+                ?>
             </div>
         </div>
     </section>
