@@ -17,6 +17,6 @@ echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" ?
         <a href="" class="nav-item">Kunden</a>
         <a href="katalog.php" class="nav-item">Katalog</a>
         <a href="" class="nav-item">Über Uns</a>
-        <a href="" class="nav-item">Log In</a>
+        <a href="login.php" class="nav-item">Log In</a>
     </div>
 </header>

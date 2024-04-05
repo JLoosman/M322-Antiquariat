@@ -1,0 +1,69 @@
+.hero {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(210deg, #71AADE, #094D8D 70%);
+}
+
+.center {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 70px;
+    border-radius: 15px;
+}
+
+.login-form > * {
+    margin: 20px 0;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-form form > * {
+    font-size: 20px;
+    height: 40px;
+    margin: 20px 0;
+}
+
+.login-form form input {
+    width: 25vw;
+    background-color: #F0F0F0;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.login-form form button {
+    color: #F0F0F0;
+    background-color: #434343;
+    width: 45%;
+    border-radius: 15px;
+    border: none;
+}
+
+.options {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.options > * {
+    font-size: 16px;
+    color: #434343;
+    text-decoration: none;
+}
