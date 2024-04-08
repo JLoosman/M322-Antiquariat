@@ -1,8 +1,19 @@
 <?php
+session_start();
+
 echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" ?
     '<link href="css/header-dark.css" rel="stylesheet">'
  :
-    '<link href="css/header.css" rel="stylesheet">'
+    '<link href="css/header.css" rel="stylesheet">';
+
+
+
+    if (!isset($_SESSION['visited'])) {
+        echo "noch nie besucht";
+        $_SESSION['visited'] = true;
+    } else {
+        echo "du warst zuvor schon hier";
+    }
 ?>
 <header>
     <div class="group">
@@ -15,7 +26,7 @@ echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" ?
     </div>
     <div class="group">
         <a href="" class="nav-item">Kunden</a>
-        <a href="katalog.php" class="nav-item">Katalog</a>
+        <a href="katalog.php?site=1" class="nav-item">Katalog</a>
         <a href="" class="nav-item">Über Uns</a>
         <a href="login.php" class="nav-item">Log In</a>
     </div>

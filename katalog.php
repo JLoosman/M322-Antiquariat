@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
+<?php
+    if(!isset($_GET["site"])) {
+        $site = 1;
+    } else {
+        $site = $_GET["site"];
+    }
+?>
 <body>
     <?php include("header.php") ?>
     <section>
@@ -94,9 +101,9 @@
                 ?>
                 </div>
                 <div class="site-changer">
-                    <i class="fa-solid fa-angle-left"></i>
+                    <a href="katalog.php?site=<?=$site - 1?>"><i class="fa-solid fa-angle-left"></i></a>
                     <p>Seite 1 von 17</p>
-                    <i class="fa-solid fa-angle-right"></i>
+                    <a href="katalog.php?site=<?=$site + 1?>"><i class="fa-solid fa-angle-right"></i></a>
                 </div>
             </div>
         </div>
