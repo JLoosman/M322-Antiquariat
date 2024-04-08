@@ -89,7 +89,7 @@ section {
 
 .filters {
     width: 80%;
-    padding-right: 100px;
+    padding-right: 40px;
 }
 
 .filter-group{
@@ -112,15 +112,19 @@ section {
 .books {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
 }
 
+
 .site-changer {
+    width: 240px;
     display: flex;
     align-items: center;
-    margin-top: 30px;
-    margin-right: 200px;
+    margin: 30px auto 0;
 }
 
 .site-changer > * {
-    margin: 0 2px;
+    color: #000;
+    margin: 0 auto;
 }

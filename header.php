@@ -9,10 +9,10 @@ echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" ?
 
 
     if (!isset($_SESSION['visited'])) {
-        echo "noch nie besucht";
+        // echo "noch nie besucht";
         $_SESSION['visited'] = true;
     } else {
-        echo "du warst zuvor schon hier";
+        // echo "du warst zuvor schon hier";
     }
 ?>
 <header>
@@ -25,7 +25,6 @@ echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" ?
         <a href="index.php" class="nav-item">myLibrary</a>
     </div>
     <div class="group">
-        <a href="" class="nav-item">Kunden</a>
         <a href="katalog.php?site=1" class="nav-item">Katalog</a>
         <a href="" class="nav-item">Über Uns</a>
         <a href="login.php" class="nav-item">Log In</a>

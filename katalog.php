@@ -15,6 +15,9 @@
         $site = 1;
     } else {
         $site = $_GET["site"];
+        if ($site < 1) {
+           header("Location: katalog.php?site=1");
+        }
     }
 ?>
 <body>
@@ -94,30 +97,31 @@
             </div>
             <div class="book-display">
                 <div class="books">
-                <?php
-                /*
-                for($i = 0; $i < 18; $i++) {
-                    include("bookCard.php");
-                }
-                */
+                    <?php
 
-                include("connection.php");;
+                    include("connection.php");;
 
-                /** @var TYPE_NAME $conn */
-                $statement = $conn->prepare("SELECT * FROM buecher LIMIT 12");
-                $statement->execute();
+                    /** @var TYPE_NAME $conn */
+                    $offset = $site * 12 - 12;
+                    $statement = $conn->prepare("SELECT * FROM buecher LIMIT 12 OFFSET {$offset}");
+                    $statement->execute();
 
-                while($row = $statement->fetch()) {
-                    $title = $row["kurztitle"];
-                    $author = $row["autor"];
-                    include("bookCard.php");
-                }
-                ?>
-                </div>
-                <div class="site-changer">
-                    <a href="katalog.php?site=<?=$site - 1?>"><i class="fa-solid fa-angle-left"></i></a>
-                    <p>Seite 1 von 17</p>
-                    <a href="katalog.php?site=<?=$site + 1?>"><i class="fa-solid fa-angle-right"></i></a>
+                    while($row = $statement->fetch()) {
+                        $title = $row["kurztitle"];
+                        $author = $row["autor"];
+                        include("bookCard.php");
+                    }
+
+                    // get count of available datasets
+                    $countStatement = "SELECT COUNT(*) FROM buecher";
+                    $totalSites = ceil(($conn->query($countStatement)->fetchColumn(0)) / 12);
+
+                    ?>
+                    <div class="site-changer">
+                        <a href="katalog.php?site=<?=$site - 1?>"><i class="fa-solid fa-angle-left"></i></a>
+                        <p>Seite<?=" $site von $totalSites"?></p>
+                        <a href="katalog.php?site=<?=$site + 1?>"><i class="fa-solid fa-angle-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,11 +1,17 @@
 .card {
-    margin: 10px;
+    margin: 20px;
 }
 
-.card p, .card small {
-    max-width: 150px;
+.card p {
+    max-width: 200px;
+}
+
+.card small {
+    display: inline-block;
+    max-width: 200px;
 }
 
 .cover {
-    height: 250px;
+    width: 200px;
+    object-fit: cover;
 }
