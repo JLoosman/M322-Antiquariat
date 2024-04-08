@@ -95,7 +95,21 @@
             <div class="book-display">
                 <div class="books">
                 <?php
+                /*
                 for($i = 0; $i < 18; $i++) {
+                    include("bookCard.php");
+                }
+                */
+
+                include("connection.php");;
+
+                /** @var TYPE_NAME $conn */
+                $statement = $conn->prepare("SELECT * FROM buecher LIMIT 12");
+                $statement->execute();
+
+                while($row = $statement->fetch()) {
+                    $title = $row["kurztitle"];
+                    $author = $row["autor"];
                     include("bookCard.php");
                 }
                 ?>
