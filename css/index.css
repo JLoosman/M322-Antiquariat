@@ -78,16 +78,15 @@ section {
 }
 
 .right-content svg {
+    display: block;
     position: absolute;
     z-index: -1;
-    margin: auto;
-    width: 500px;
+    margin: 75px 0 0 200px;
 }
 
 .right-content img {
-    height: 60%;
+    display: block;
+    width: 500px;
     position: absolute;
-    margin: auto;
-    left: 14%;
-    top: 15%;
+    margin-left: 250px;
 }

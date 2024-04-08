@@ -35,8 +35,8 @@
             </p>
         </div>
         <div class="content right-content">
-            <img src="img/Bookcover.png" alt="">
-            <svg width="676" height="676" viewBox="0 0 676 676" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <img src="img/cover/labyrinth.jpg" alt="">
+            <svg width="600" height="600" viewBox="0 0 676 676" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="338" cy="338" r="338" fill="#D9D9D9"/>
         </div>
     </section>
