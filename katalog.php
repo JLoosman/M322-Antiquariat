@@ -37,10 +37,14 @@
             </div>
             <div class="search-right">
                 <h3>Sortieren nach:</h3>
-                <div class="dropdown">
-                    <p>Name</p>
-                    <i class="fa-solid fa-angle-down"></i>
-                </div>
+                    <select class="dropdown" form="searchQuery" >
+                        <option selected value="nummer">Nummer (ID)</option>
+                        <option value="title">Titel</option>
+                        <option value="kategorie">Kategorie</option>
+                        <option value="autor">Autor</option>
+                        <i class="fa-solid fa-angle-down"></i>
+                    </select>
+                    <!--  -->
                 <i class="fa-solid fa-circle-chevron-down"></i>
             </div>
         </div>
@@ -50,47 +54,47 @@
                     <h3>Filters</h3>
                     <div class="filter-group">
                         <p>Zustand</p>
-                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "G" ? "checked" : "") : ""?> id="G" value="G" name="zustand">
+                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "G" ? "checked" : "") : ""?> id="G" value="G" name="zustand[]">
                             <label for="G">Gut</label><br>
-                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "M" ? "checked" : "") : ""?>id="M" value="M" name="zustand">
+                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "M" ? "checked" : "") : ""?>id="M" value="M" name="zustand[]">
                             <label for="M">Mittel</label><br>
-                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "S" ? "checked" : "") : ""?>id="S" value="S" name="zustand">
+                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "S" ? "checked" : "") : ""?>id="S" value="S" name="zustand[]">
                             <label for="S">Schlecht</label><br>
                     </div>
                     <div class="filter-group">
                         <p>Verfügbarkeit</p>
-                        <input form="searchQuery" type="checkbox" id="Vorhanden" value="Vorhanden" name="Verfügbarkeit">
+                        <input form="searchQuery" type="checkbox" id="Vorhanden" value="0" name="verfuegbarkeit[]">
                             <label for="Vorhanden">Vorhanden</label><br>
-                        <input form="searchQuery" type="checkbox" id="Ausgelehnt" value="Ausgelehnt" name="Verfügbarkeit">
-                            <label for="Ausgelehnt">Ausgelehnt</label><br>
+                        <input form="searchQuery" type="checkbox" id="Ausgelehnt" value="1" name="verfuegbarkeit[]">
+                            <label for="Ausgelehnt">Verkauft</label><br>
                     </div>
                     <div class="filter-group">
                         <p>Kategorie</p>
-                        <input form="searchQuery" type="checkbox" id="Alte Drucke, Bibeln" value="1" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Alte Drucke, Bibeln" value="1" name="kategorie[]">
                             <label for="Alte Drucke, Bibeln">Alte Drucke, Bibeln</label><br>
-                        <input form="searchQuery" type="checkbox" id="Geographie und Reisen" value="2" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Geographie und Reisen" value="2" name="kategorie[]">
                             <label for="Geographie und Reisen">Geographie und Reisen</label><br>
-                        <input form="searchQuery" type="checkbox" id="Geschichtswissenschaften" value="3" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Geschichtswissenschaften" value="3" name="kategorie[]">
                             <label for="Geschichtswissenschaften">Geschichtswissenschaften</label><br>
-                        <input form="searchQuery" type="checkbox" id="Naturwissenschaften" value="4" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Naturwissenschaften" value="4" name="kategorie[]">
                             <label for="Naturwissenschaften">Naturwissenschaften</label><br>
-                        <input form="searchQuery" type="checkbox" id="Kinderbücher" value="5" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Kinderbücher" value="5" name="kategorie[]">
                             <label for="Kinderbücher">Kinderbücher</label><br>
-                        <input form="searchQuery" type="checkbox" id="Moderne Literatur und Kunst" value="6" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Moderne Literatur und Kunst" value="6" name="kategorie[]">
                             <label for="Moderne Literatur und Kunst">Moderne Literatur und Kunst</label><br>
-                        <input form="searchQuery" type="checkbox" id="Moderne Künstlergraphik" value="7" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Moderne Künstlergraphik" value="7" name="kategorie[]">
                             <label for="Moderne Künstlergraphik">Moderne Künstlergraphik</label><br>
-                        <input form="searchQuery" type="checkbox" id="Kunstwissenschaften" value="8" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Kunstwissenschaften" value="8" name="kategorie[]">
                             <label for="Kunstwissenschaften">Kunstwissenschaften</label><br>
-                        <input form="searchQuery" type="checkbox" id="Architektur" value="9" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Architektur" value="9" name="kategorie[]">
                             <label for="Architektur">Architektur</label><br>
-                        <input form="searchQuery" type="checkbox" id="Technik" value="10" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Technik" value="10" name="kategorie[]">
                             <label for="Technik">Technik</label><br>
-                        <input form="searchQuery" type="checkbox" id="Naturwissenschaften - Medizin" value="11" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Naturwissenschaften - Medizin" value="11" name="kategorie[]">
                             <label for="Naturwissenschaften - Medizin">Naturwissenschaften - Medizin</label><br>
-                        <input form="searchQuery" type="checkbox" id="Ozeanien" value="12" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Ozeanien" value="12" name="kategorie[]">
                             <label for="Ozeanien">Ozeanien</label><br>
-                        <input form="searchQuery" type="checkbox" id="Afrika" value="13" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Afrika" value="13" name="kategorie[]">
                             <label for="Afrika">Afrika</label><br>
                     </div>
                 </form>
@@ -100,37 +104,65 @@
                     <?php
 
                     include("connection.php");
-
-                    /** @var TYPE_NAME $conn */
+                    // base SQL query for site
+                    $query = "SELECT * FROM buecher";
                     $offset = $site * 12 - 12;
-                    // $statement = $conn->prepare("SELECT * FROM buecher LIMIT 12 OFFSET {$offset}");
-                    $statement = $conn->prepare(
-                            "SELECT * FROM buecher
-                                    WHERE 
-                                        kurztitle LIKE :kurztitle 
-                                       OR 
-                                        autor LIKE :author 
-                                        AND
-                                        zustand = :zustand
-                                    LIMIT 12 
-                                    OFFSET {$offset}");
 
-                    // passing arguments of form to query using prepared statements
+                    // check if any search criterias are given
                     if(isset($_GET["q"])) {
-                        $queryParam = $_GET["q"];
-                        if(isset($_GET["zustand"])) {
-                            $zustandParam = $_GET["zustand"];
-                            $statement->execute(["kurztitle" => "%{$queryParam}%", "author" => "%{$queryParam}%", "zustand" => "$zustandParam"]);
-                        } else {
-                        $statement->execute(["kurztitle" => "%{$queryParam}%", "author" => "%{$queryParam}%", "zustand" => ""]);
-                        }
+                        $q = $_GET["q"];
+                        // add search criterias to SQL query
+                        $query = $query . " WHERE (kurztitle LIKE '%$q%' OR autor LIKE '%$q%')";
 
-                    } else {
-                        $statement->execute(["kurztitle" => "%%", "author" => "%%", "zustand" => ""]);
+                        // check for every type of checkbox if its used and add to SQL query if needed
+                        if(isset($_GET["zustand"])) {
+                            $zustand = $_GET["zustand"];
+                            if(count($zustand) > 1) {
+                                $query = $query . " AND (";
+                                foreach ($zustand as $item) {
+                                    $query = $query . " zustand = '$item' OR";
+                                }
+                                $query = rtrim($query, " OR") . ")";
+                            } else {
+                                $query = $query . " AND zustand = '$zustand[0]'";
+                            }
+                        }
+                        if(isset($_GET["verfuegbarkeit"])) {
+                            $verfuegbarkeit = $_GET["verfuegbarkeit"];
+                            if(count($verfuegbarkeit) > 1) {
+                                $query = $query . " AND (";
+                                foreach ($verfuegbarkeit as $item) {
+                                    $query = $query . " verkauft = '$item' OR";
+                                }
+                                $query = rtrim($query, " OR") . ")";
+                            } else {
+                                $query = $query . " AND verkauft = '$verfuegbarkeit[0]'";
+                            }
+                        }
+                        if(isset($_GET["kategorie"])) {
+                            $kategorie = $_GET["kategorie"];
+                            if(count($kategorie) > 1) {
+                                $query = $query . " AND (";
+                                foreach ($kategorie as $item) {
+                                    $query = $query . " kategorie = '$item' OR";
+                                }
+                                $query = rtrim($query, " OR") . ")";
+                            } else {
+                                $query = $query . " AND kategorie = '$kategorie[0]'";
+                            }
+                        }
                     }
 
+                    // add ending to SQL query to only show 12 datasets per page and and offset to view different result on further pages
+                    $query = $query . " LIMIT 12 OFFSET $offset";
+
+                    // running SQL query
+                    /** @var TYPE_NAME $conn */
+                    $statement = $conn->query($query);
+
+
                     // outputing content of query
-                    while($row = $statement->fetch()) {
+                    while ($row = $statement->fetch()) {
                         $id = $row["id"];
                         $title = $row["kurztitle"];
                         $author = $row["autor"];
@@ -138,8 +170,9 @@
                     }
 
                     // get count of available datasets
-                    $countStatement = "SELECT COUNT(*) FROM buecher";
+                    $countStatement = substr_replace($query, "COUNT(*)", 7, 1);
                     $totalSites = ceil(($conn->query($countStatement)->fetchColumn(0)) / 12);
+
 
                     ?>
                     <div class="site-changer">

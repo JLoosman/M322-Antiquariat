@@ -26,12 +26,17 @@ section {
 }
 
 .dropdown {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
     width: 250px;
+    border: none;
+    outline: none;
     background-color: #F0F0F0;
     padding: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* Search Bar */
@@ -114,6 +119,7 @@ section {
     flex-flow: row wrap;
     justify-content: center;
     width: 100%;
+    max-width: 1300px;
 }
 
 
