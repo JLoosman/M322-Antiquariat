@@ -12,6 +12,37 @@
 </head>
 <body>
     <?php include("header.php"); ?>
+    <?php
+    if(isset($_GET["id"])) {
+
+        include("connection.php");
+        /** @var TYPE_NAME $conn */
+        $statement = $conn->prepare("SELECT * FROM buecher WHERE id = :id");
+
+        $statement->execute(["id" => $_GET['id']]);
+
+        $row = $statement->fetch();
+
+        $title = $row["kurztitle"];
+        $author = $row["autor"];
+        $description = $row["title"];
+    } else {
+        header("Location: katalog.php");
+    }
+    ?>
+    <main>
+        <div class="left-content">
+            <img src=<?=$_GET["img"]?> alt="">
+            <svg width="600" height="600" viewBox="0 0 676 676" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="338" cy="338" r="338" fill="#D9D9D9"/>
+        </div>
+        <div class="right-content">
+            <h1><?=$title?></h1>
+            <h3><?=$author?></h3>
+            <div class="rating">X X X X X</div>
+            <p><?=$description?></p>
+        </div>
+    </main>
     <?php include("footer.php"); ?>
 </body>
 </html>

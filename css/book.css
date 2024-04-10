@@ -1,0 +1,44 @@
+
+main {
+    display: flex;
+    padding: 50px;
+}
+
+.left-content {
+    position: relative;
+    padding: 50px;
+}
+
+.left-content svg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+}
+
+.left-content img {
+    display: block;
+    width: 300px;
+}
+
+.right-content {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-content > * {
+    margin: 10px 0;
+}
+
+.right-content h1 {
+    font-size: 50px;
+}
+
+.right-content h3 {
+    font-size: 25px;
+}
+
+.right-content p {
+    max-width: 800px;
+    font-size: 20px;
+}

@@ -14,8 +14,8 @@
     <div class="hero">
         <?php include("header.php")?>
         <div class="search-bar">
-            <form action="">
-                <input type="text" placeholder="Search...">
+            <form action="katalog.php">
+                <input name="q" type="text" placeholder="Search...">
                 <button class="search-icon" type="submit">
                 <i class="fa fa-search"></i>
                 </button>
