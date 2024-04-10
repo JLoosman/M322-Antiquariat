@@ -100,7 +100,7 @@
                 </form>
             </div>
             <div class="book-display">
-                <div class="books">
+                <div class="books" id="books">
                     <?php
 
                     include("connection.php");
@@ -186,4 +186,5 @@
     </section>
     <?php include("footer.php") ?>
 </body>
+<script src="script.js"></script>
 </html>

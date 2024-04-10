@@ -124,7 +124,7 @@ section {
 
 
 .site-changer {
-    width: 240px;
+    width: 300px;
     display: flex;
     align-items: center;
     margin: 30px auto 0;
@@ -132,5 +132,5 @@ section {
 
 .site-changer > * {
     color: #000;
-    margin: 0 auto;
+    margin: 0 20px;
 }
