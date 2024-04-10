@@ -75,7 +75,7 @@ section {
 .search-bar button {
     border: none;
     background: transparent;
-    width: 30px;
+    width: 40px;
     font-size: 30px;
     color: #434343;
 }
@@ -88,8 +88,7 @@ section {
 }
 
 .filters {
-    width: 80%;
-    padding-right: 40px;
+    width: 800px;
 }
 
 .filter-group{
@@ -101,6 +100,7 @@ section {
 .filter-group > * {
     margin-top: 12px;
 }
+
 .book-display {
     margin-left: 10%;
     display: flex;

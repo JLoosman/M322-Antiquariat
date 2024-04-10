@@ -26,14 +26,14 @@
         <div class="search">
             <div class="search-left">
                 <div class="search-bar">
-                    <form action="">
-                        <input type="text" placeholder="Search...">
+                    <form id="searchQuery" action="katalog.php" method="get">
+                        <input name="q" type="text" placeholder="Search...">
                         <button class="search-icon" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
                     </form>
                 </div>
-                <i class="fa-regular fa-square-plus"></i>
+                <!-- <i class="fa-regular fa-square-plus"></i> -->
             </div>
             <div class="search-right">
                 <h3>Sortieren nach:</h3>
@@ -46,51 +46,51 @@
         </div>
         <div class="content">
             <div class="filters">
-                <form action="">
+                <form>
                     <h3>Filters</h3>
                     <div class="filter-group">
                         <p>Zustand</p>
-                        <input type="radio" id="G" value="G" name="Zustand">
+                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "G" ? "checked" : "") : ""?> id="G" value="G" name="zustand">
                             <label for="G">Gut</label><br>
-                        <input type="radio" id="M" value="M" name="Zustand">
+                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "M" ? "checked" : "") : ""?>id="M" value="M" name="zustand">
                             <label for="M">Mittel</label><br>
-                        <input type="radio" id="S" value="S" name="Zustand">
+                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "S" ? "checked" : "") : ""?>id="S" value="S" name="zustand">
                             <label for="S">Schlecht</label><br>
                     </div>
                     <div class="filter-group">
                         <p>Verfügbarkeit</p>
-                        <input type="radio" id="Vorhanden" value="Vorhanden" name="Verfügbarkeit">
+                        <input form="searchQuery" type="checkbox" id="Vorhanden" value="Vorhanden" name="Verfügbarkeit">
                             <label for="Vorhanden">Vorhanden</label><br>
-                        <input type="radio" id="Ausgelehnt" value="Ausgelehnt" name="Verfügbarkeit">
+                        <input form="searchQuery" type="checkbox" id="Ausgelehnt" value="Ausgelehnt" name="Verfügbarkeit">
                             <label for="Ausgelehnt">Ausgelehnt</label><br>
                     </div>
                     <div class="filter-group">
                         <p>Kategorie</p>
-                        <input type="radio" id="Alte Drucke, Bibeln" value="1" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Alte Drucke, Bibeln" value="1" name="Kategorie">
                             <label for="Alte Drucke, Bibeln">Alte Drucke, Bibeln</label><br>
-                        <input type="radio" id="Geographie und Reisen" value="2" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Geographie und Reisen" value="2" name="Kategorie">
                             <label for="Geographie und Reisen">Geographie und Reisen</label><br>
-                        <input type="radio" id="Geschichtswissenschaften" value="3" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Geschichtswissenschaften" value="3" name="Kategorie">
                             <label for="Geschichtswissenschaften">Geschichtswissenschaften</label><br>
-                        <input type="radio" id="Naturwissenschaften" value="4" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Naturwissenschaften" value="4" name="Kategorie">
                             <label for="Naturwissenschaften">Naturwissenschaften</label><br>
-                        <input type="radio" id="Kinderbücher" value="5" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Kinderbücher" value="5" name="Kategorie">
                             <label for="Kinderbücher">Kinderbücher</label><br>
-                        <input type="radio" id="Moderne Literatur und Kunst" value="6" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Moderne Literatur und Kunst" value="6" name="Kategorie">
                             <label for="Moderne Literatur und Kunst">Moderne Literatur und Kunst</label><br>
-                        <input type="radio" id="Moderne Künstlergraphik" value="7" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Moderne Künstlergraphik" value="7" name="Kategorie">
                             <label for="Moderne Künstlergraphik">Moderne Künstlergraphik</label><br>
-                        <input type="radio" id="Kunstwissenschaften" value="8" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Kunstwissenschaften" value="8" name="Kategorie">
                             <label for="Kunstwissenschaften">Kunstwissenschaften</label><br>
-                        <input type="radio" id="Architektur" value="9" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Architektur" value="9" name="Kategorie">
                             <label for="Architektur">Architektur</label><br>
-                        <input type="radio" id="Technik" value="10" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Technik" value="10" name="Kategorie">
                             <label for="Technik">Technik</label><br>
-                        <input type="radio" id="Naturwissenschaften - Medizin" value="11" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Naturwissenschaften - Medizin" value="11" name="Kategorie">
                             <label for="Naturwissenschaften - Medizin">Naturwissenschaften - Medizin</label><br>
-                        <input type="radio" id="Ozeanien" value="12" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Ozeanien" value="12" name="Kategorie">
                             <label for="Ozeanien">Ozeanien</label><br>
-                        <input type="radio" id="Afrika" value="13" name="Kategorie">
+                        <input form="searchQuery" type="checkbox" id="Afrika" value="13" name="Kategorie">
                             <label for="Afrika">Afrika</label><br>
                     </div>
                 </form>
@@ -99,14 +99,39 @@
                 <div class="books">
                     <?php
 
-                    include("connection.php");;
+                    include("connection.php");
 
                     /** @var TYPE_NAME $conn */
                     $offset = $site * 12 - 12;
-                    $statement = $conn->prepare("SELECT * FROM buecher LIMIT 12 OFFSET {$offset}");
-                    $statement->execute();
+                    // $statement = $conn->prepare("SELECT * FROM buecher LIMIT 12 OFFSET {$offset}");
+                    $statement = $conn->prepare(
+                            "SELECT * FROM buecher
+                                    WHERE 
+                                        kurztitle LIKE :kurztitle 
+                                       OR 
+                                        autor LIKE :author 
+                                        AND
+                                        zustand = :zustand
+                                    LIMIT 12 
+                                    OFFSET {$offset}");
 
+                    // passing arguments of form to query using prepared statements
+                    if(isset($_GET["q"])) {
+                        $queryParam = $_GET["q"];
+                        if(isset($_GET["zustand"])) {
+                            $zustandParam = $_GET["zustand"];
+                            $statement->execute(["kurztitle" => "%{$queryParam}%", "author" => "%{$queryParam}%", "zustand" => "$zustandParam"]);
+                        } else {
+                        $statement->execute(["kurztitle" => "%{$queryParam}%", "author" => "%{$queryParam}%", "zustand" => ""]);
+                        }
+
+                    } else {
+                        $statement->execute(["kurztitle" => "%%", "author" => "%%", "zustand" => ""]);
+                    }
+
+                    // outputing content of query
                     while($row = $statement->fetch()) {
+                        $id = $row["id"];
                         $title = $row["kurztitle"];
                         $author = $row["autor"];
                         include("bookCard.php");
