@@ -11,10 +11,25 @@
     <title>Katalog</title>
 </head>
 <?php
+    function test_input($data) {
+        if(is_array($data)) {
+            $arr = [];
+            foreach ($data as $dataset) {
+                array_push($arr, test_input($dataset));
+            }
+            return $arr;
+        } else {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+    }
+
     if(!isset($_GET["site"])) {
         $site = 1;
     } else {
-        $site = $_GET["site"];
+        $site = test_input($_GET["site"]);
         if ($site < 1) {
            header("Location: katalog.php?site=1");
         }
@@ -111,13 +126,13 @@
 
                     // check if any search criterias are given
                     if(isset($_GET["q"])) {
-                        $q = $_GET["q"];
+                        $q = test_input($_GET["q"]);
                         // add search criterias to SQL query
                         $query = $query . " WHERE (kurztitle LIKE '%$q%' OR autor LIKE '%$q%')";
 
                         // check for every type of checkbox if its used and add to SQL query if needed
                         if(isset($_GET["zustand"])) {
-                            $zustand = $_GET["zustand"];
+                            $zustand = test_input($_GET["zustand"]);
                             if(count($zustand) > 1) {
                                 $query = $query . " AND (";
                                 foreach ($zustand as $item) {
@@ -129,7 +144,7 @@
                             }
                         }
                         if(isset($_GET["verfuegbarkeit"])) {
-                            $verfuegbarkeit = $_GET["verfuegbarkeit"];
+                            $verfuegbarkeit = test_input($_GET["verfuegbarkeit"]);
                             if(count($verfuegbarkeit) > 1) {
                                 $query = $query . " AND (";
                                 foreach ($verfuegbarkeit as $item) {
@@ -141,7 +156,7 @@
                             }
                         }
                         if(isset($_GET["kategorie"])) {
-                            $kategorie = $_GET["kategorie"];
+                            $kategorie = test_input($_GET["kategorie"]);
                             if(count($kategorie) > 1) {
                                 $query = $query . " AND (";
                                 foreach ($kategorie as $item) {
@@ -154,7 +169,7 @@
                         }
 
                         if(isset($_GET["sortBy"])) {
-                            $sort = $_GET["sortBy"];
+                            $sort = test_input($_GET["sortBy"]);
 
                             $query = $query . " ORDER BY $sort";
 
@@ -185,11 +200,16 @@
                     $countStatement = substr($countStatement, 0, strpos($countStatement, "OFFSET"));
                     // i have to use this to fix the site bug at the bottom of page
                     $totalSites = ceil(($conn->query($countStatement)->fetchColumn(0)) / 12);
+
                     ?>
                     <div class="site-changer">
                         <?php
                             $siteBefore = $site-1;
                             $siteAfter = $site+1;
+
+                            if($siteAfter > $totalSites) {
+                                $siteAfter = 1;
+                            }
                         ?>
                         <a href=<?=str_replace("site=$site", "site=$siteBefore", $_SERVER["REQUEST_URI"])?>><i class="fa-solid fa-angle-left"></i></a>
                         <p>Seite<?=" $site von $totalSites"?></p>

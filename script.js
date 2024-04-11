@@ -19,6 +19,7 @@ if(cardArray.length % 4 !== 0) {
         }
     }
 }
+console.log(cardArray.length)
 
 // change appearance of sorting symbol at the right of screen on click
 sort.addEventListener("click", () => {
