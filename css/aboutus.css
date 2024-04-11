@@ -1,0 +1,20 @@
+main {
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+main > * {
+    text-align: center;
+    margin: 20px 250px;
+}
+
+main > h2 {
+    font-size: 40px;
+}
+
+main > p {
+    font-size: 20px;
+}

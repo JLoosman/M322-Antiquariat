@@ -1,11 +1,11 @@
 <?php
 session_start();
-if(basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['PHP_SELF']))  == "book.php") {
+if(basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['PHP_SELF']))  == "book.php" || basename(($_SERVER['PHP_SELF']))  == "aboutus.php") {
     $logo = "black";
 } else {
     $logo = "white";
 }
-echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['PHP_SELF']))  == "book.php" ?
+echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['PHP_SELF']))  == "book.php" || basename(($_SERVER['PHP_SELF']))  == "aboutus.php" ?
     '<link href="css/header-dark.css" rel="stylesheet">'
  :
     '<link href="css/header.css" rel="stylesheet">';
@@ -30,7 +30,7 @@ echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['P
     </div>
     <div class="group">
         <a href="katalog.php?site=1" class="nav-item">Katalog</a>
-        <a href="" class="nav-item">Über Uns</a>
+        <a href="aboutus.php" class="nav-item">Über Uns</a>
         <a href="login.php" class="nav-item">Log In</a>
     </div>
 </header>
