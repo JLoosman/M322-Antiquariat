@@ -29,6 +29,11 @@ input {
     color: #434343;
 }
 
+
+.search-bar .site {
+    display: none;
+}
+
 input:focus {
     outline: none;
 }

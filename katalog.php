@@ -26,26 +26,27 @@
         <div class="search">
             <div class="search-left">
                 <div class="search-bar">
-                    <form id="searchQuery" action="katalog.php" method="get">
+                    <form id="searchQuery" action="katalog.php?site=1" method="get">
+                        <input class="site" name="site" value="1" type="text">
                         <input name="q" type="text" placeholder="Search...">
                         <button class="search-icon" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
                     </form>
                 </div>
-                <!-- <i class="fa-regular fa-square-plus"></i> -->
             </div>
             <div class="search-right">
                 <h3>Sortieren nach:</h3>
-                    <select class="dropdown" form="searchQuery" >
-                        <option selected value="nummer">Nummer (ID)</option>
-                        <option value="title">Titel</option>
-                        <option value="kategorie">Kategorie</option>
-                        <option value="autor">Autor</option>
-                        <i class="fa-solid fa-angle-down"></i>
-                    </select>
-                    <!--  -->
-                <i class="fa-solid fa-circle-chevron-down"></i>
+                <select name="sortBy" class="dropdown" form="searchQuery" >
+                    <option selected value="id">Nummer (ID)</option>
+                    <option value="kurztitle">Titel</option>
+                    <option value="kategorie">Kategorie</option>
+                    <option value="autor">Autor</option>
+
+                </select>
+                <!-- <i class="fa-solid fa-angle-down"></i> -->
+                <i id="sortingSymbol" class="fa-solid fa-arrow-down-wide-short"></i>
+                <input form="searchQuery" id="sortCheckbox" name="desc" value="1" type="checkbox">
             </div>
         </div>
         <div class="content">
@@ -151,11 +152,21 @@
                                 $query = $query . " AND kategorie = '$kategorie[0]'";
                             }
                         }
+
+                        if(isset($_GET["sortBy"])) {
+                            $sort = $_GET["sortBy"];
+
+                            $query = $query . " ORDER BY $sort";
+
+                            if(isset($_GET["desc"])) {
+                                $query = $query . " DESC";
+                            }
+                        }
                     }
 
                     // add ending to SQL query to only show 12 datasets per page and and offset to view different result on further pages
                     $query = $query . " LIMIT 12 OFFSET $offset";
-
+                    // echo $query;
                     // running SQL query
                     /** @var TYPE_NAME $conn */
                     $statement = $conn->query($query);
@@ -171,14 +182,18 @@
 
                     // get count of available datasets
                     $countStatement = substr_replace($query, "COUNT(*)", 7, 1);
+                    $countStatement = substr($countStatement, 0, strpos($countStatement, "OFFSET"));
+                    // i have to use this to fix the site bug at the bottom of page
                     $totalSites = ceil(($conn->query($countStatement)->fetchColumn(0)) / 12);
-
-
                     ?>
                     <div class="site-changer">
-                        <a href="katalog.php?site=<?=$site - 1?>"><i class="fa-solid fa-angle-left"></i></a>
+                        <?php
+                            $siteBefore = $site-1;
+                            $siteAfter = $site+1;
+                        ?>
+                        <a href=<?=str_replace("site=$site", "site=$siteBefore", $_SERVER["REQUEST_URI"])?>><i class="fa-solid fa-angle-left"></i></a>
                         <p>Seite<?=" $site von $totalSites"?></p>
-                        <a href="katalog.php?site=<?=$site + 1?>"><i class="fa-solid fa-angle-right"></i></a>
+                        <a href=<?=str_replace("site=$site", "site=$siteAfter", $_SERVER["REQUEST_URI"])?>><i class="fa-solid fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>

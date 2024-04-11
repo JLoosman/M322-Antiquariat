@@ -25,6 +25,10 @@ section {
     margin: 0 10px;
 }
 
+.search-right > i {
+    font-size: 30px;
+}
+
 .dropdown {
     /* display: flex;
     justify-content: space-between;
@@ -37,6 +41,10 @@ section {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+#sortCheckbox {
+    display: none;
 }
 
 /* Search Bar */
@@ -60,6 +68,10 @@ section {
     border: none;
     color: #434343;
     background-color: #F0F0F0;
+}
+
+.search-bar .site {
+    display: none;
 }
 
 .search-icon {
