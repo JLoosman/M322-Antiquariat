@@ -52,7 +52,7 @@
             </div>
             <div class="search-right">
                 <h3>Sortieren nach:</h3>
-                <select name="sortBy" id="dropdown" class="dropdown" form="searchQuery" >
+                <select name="sortBy" id="dropdown" class="dropdown">
                     <option selected value="id">Nummer (ID)</option>
                     <option value="kurztitle">Titel</option>
                     <option value="kategorie">Kategorie</option>
@@ -68,11 +68,11 @@
                     <h3>Filters</h3>
                     <div class="filter-group">
                         <p>Zustand</p>
-                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "G" ? "checked" : "") : ""?> id="G" value="G" name="zustand[]">
+                        <input form="searchQuery" type="checkbox" id="G" value="G" name="zustand[]">
                             <label for="G">Gut</label><br>
-                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "M" ? "checked" : "") : ""?>id="M" value="M" name="zustand[]">
+                        <input form="searchQuery" type="checkbox" id="M" value="M" name="zustand[]">
                             <label for="M">Mittel</label><br>
-                        <input form="searchQuery" type="checkbox" <?= isset($_GET["zustand"]) ? ($_GET["zustand"] == "S" ? "checked" : "") : ""?>id="S" value="S" name="zustand[]">
+                        <input form="searchQuery" type="checkbox" id="S" value="S" name="zustand[]">
                             <label for="S">Schlecht</label><br>
                     </div>
                     <div class="filter-group">

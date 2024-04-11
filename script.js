@@ -26,12 +26,29 @@ if(location.href.includes("desc=1")) {
     sort.classList.add("fa-arrow-up-wide-short")
 }
 
+if(location.href.includes("sortBy")) {
+    if (location.href.includes("sortBy=kurztitle")) {
+        dropdown.options[1].setAttribute('selected', true)
+    } else if (location.href.includes("sortBy=kategorie")) {
+        dropdown.options[2].setAttribute('selected', true)
+    } else if (location.href.includes("sortBy=autor")) {
+        dropdown.options[3].setAttribute('selected', true)
+    }
+}
+
+for (let i = 0; i < dropdown.options.length; i++) {
+    dropdown.options[i].addEventListener("click", () => {
+        location.href = location.href.replace(/&sortBy=.*/g, "") + "&sortBy=" + dropdown.options[i].value
+    })
+}
+
+
 // change appearance of sorting symbol at the right of screen on click
 sort.addEventListener("click", () => {
     if(sort.classList.contains("fa-arrow-down-wide-short")) {
         sort.classList.remove("fa-arrow-down-wide-short")
         sort.classList.add("fa-arrow-up-wide-short")
-        location.href = location.href.replace("&sortBy="+dropdown.value, "") + "&sortBy=" + dropdown.value + "&desc=1"
+        location.href = location.href.replace(/&sortBy=.*/g, "") + "&sortBy=" + dropdown.value + "&desc=1"
     } else if(sort.classList.contains("fa-arrow-up-wide-short")) {
         sort.classList.remove("fa-arrow-up-wide-short")
         sort.classList.add("fa-arrow-down-wide-short")
