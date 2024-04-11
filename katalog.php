@@ -43,7 +43,7 @@
                 <div class="search-bar">
                     <form id="searchQuery" action="katalog.php?site=1" method="get">
                         <input class="site" name="site" value="1" type="text">
-                        <input name="q" type="text" placeholder="Search...">
+                        <input name="q" type="text" placeholder="Suche...">
                         <button class="search-icon" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
@@ -52,16 +52,14 @@
             </div>
             <div class="search-right">
                 <h3>Sortieren nach:</h3>
-                <select name="sortBy" class="dropdown" form="searchQuery" >
+                <select name="sortBy" id="dropdown" class="dropdown" form="searchQuery" >
                     <option selected value="id">Nummer (ID)</option>
                     <option value="kurztitle">Titel</option>
                     <option value="kategorie">Kategorie</option>
                     <option value="autor">Autor</option>
-
                 </select>
                 <!-- <i class="fa-solid fa-angle-down"></i> -->
                 <i id="sortingSymbol" class="fa-solid fa-arrow-down-wide-short"></i>
-                <input form="searchQuery" id="sortCheckbox" name="desc" value="1" type="checkbox">
             </div>
         </div>
         <div class="content">
@@ -168,14 +166,15 @@
                             }
                         }
 
-                        if(isset($_GET["sortBy"])) {
-                            $sort = test_input($_GET["sortBy"]);
+                    }
 
-                            $query = $query . " ORDER BY $sort";
+                    if(isset($_GET["sortBy"])) {
+                        $sort = test_input($_GET["sortBy"]);
 
-                            if(isset($_GET["desc"])) {
-                                $query = $query . " DESC";
-                            }
+                        $query = $query . " ORDER BY $sort";
+
+                        if(isset($_GET["desc"])) {
+                            $query = $query . " DESC";
                         }
                     }
 

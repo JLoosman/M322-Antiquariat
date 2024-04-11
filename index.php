@@ -16,7 +16,7 @@
         <div class="search-bar">
             <form action="katalog.php">
                 <input class="site" name="site" type="text" value="1">
-                <input name="q" type="text" placeholder="Search...">
+                <input name="q" type="text" placeholder="Suche...">
                 <button class="search-icon" type="submit">
                 <i class="fa fa-search"></i>
                 </button>
