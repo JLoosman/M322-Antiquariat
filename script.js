@@ -5,6 +5,8 @@ const newDiv = document.createElement("div");
 const sort = document.getElementById("sortingSymbol");
 const dropdown = document.getElementById("dropdown");
 
+const noResult = document.getElementById("noResults");
+
 // making sure the sorting arrows on the bottom of katalog.php are always on the bottom by always keeping the amount of cards dividable by 4
 newDiv.classList.add("card");
 
@@ -19,6 +21,11 @@ if(cardArray.length % 4 !== 0) {
         }
     }
 }
+
+// show message when no books are found
+ if(cardArray.length === 0) {
+    noResult.classList.toggle("hidden")
+ }
 console.log(cardArray.length)
 
 if(location.href.includes("desc=1")) {

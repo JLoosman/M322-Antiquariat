@@ -115,6 +115,7 @@
                 </form>
             </div>
             <div class="book-display">
+                <h3 id="noResults" class="hidden">Keine Resultate gefunden...</h3>
                 <div class="books" id="books">
                     <?php
 
@@ -202,7 +203,7 @@
                     $totalSites = ceil(($conn->query($countStatement)->fetchColumn(0)) / 12);
 
                     ?>
-                    <div class="site-changer">
+                    <div id="sitechanger" class="site-changer">
                         <?php
                             $siteBefore = $site-1;
                             $siteAfter = $site+1;

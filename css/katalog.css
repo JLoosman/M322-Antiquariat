@@ -134,6 +134,13 @@ section {
     max-width: 1300px;
 }
 
+#noResults {
+
+}
+
+.hidden {
+    display: none;
+}
 
 .site-changer {
     width: 300px;

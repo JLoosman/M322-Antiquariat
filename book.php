@@ -62,7 +62,7 @@
     ?>
     <main>
         <div class="left-content">
-            <img src=<?=$_GET["img"]?> alt="">
+            <img src=<?=test_input($_GET["img"])?> alt="">
             <svg width="600" height="600" viewBox="0 0 676 676" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="338" cy="338" r="338" fill="#D9D9D9"/>
         </div>
