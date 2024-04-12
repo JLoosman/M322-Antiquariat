@@ -48,6 +48,10 @@ h1 {
     padding: 20px;
 }
 
+.login-form form input:focus {
+    outline: none;
+}
+
 .login-form form button {
     color: #F0F0F0;
     background-color: #434343;
