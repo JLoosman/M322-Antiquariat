@@ -62,7 +62,6 @@
                     <option value="kategorie">Kategorie</option>
                     <option value="autor">Autor</option>
                 </select>
-                <!-- <i class="fa-solid fa-angle-down"></i> -->
                 <i id="sortingSymbol" class="fa-solid fa-arrow-down-wide-short"></i>
             </div>
         </div>

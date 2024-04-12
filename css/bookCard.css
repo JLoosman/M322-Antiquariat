@@ -24,6 +24,9 @@
     -webkit-box-orient: vertical;
 }
 
+.card h4 {
+    margin-top: 5px;
+}
 .cover {
     width: 200px;
     object-fit: cover;

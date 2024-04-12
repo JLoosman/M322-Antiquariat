@@ -30,9 +30,6 @@ section {
 }
 
 .dropdown {
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
     width: 250px;
     border: none;
     outline: none;
@@ -43,8 +40,8 @@ section {
     appearance: none;
 }
 
-#sortCheckbox {
-
+.search-right > i:hover {
+    cursor: pointer;
 }
 
 /* Search Bar */
