@@ -1,10 +1,12 @@
 <link rel="stylesheet" href="css/bookCard.css">
 
 <?php
+    // choose a random image from the img/cover directory
     $imgDir = "img/cover/";
     $images = glob($imgDir . "*.{jpg, jpeg, png}", GLOB_BRACE);
     $randImg = $images[array_rand($images)];
 
+    // store the current prices into a session variable to make it persistant
     if(isset($_SESSION["prices"])) {
         $count = $id % 12;
     } else {

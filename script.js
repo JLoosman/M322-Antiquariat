@@ -28,11 +28,12 @@ if(cardArray.length % 4 !== 0) {
  }
 console.log(cardArray.length)
 
+// if url includes desc add class to visualise it
 if(location.href.includes("desc=1")) {
     sort.classList.remove("fa-arrow-down-wide-short")
     sort.classList.add("fa-arrow-up-wide-short")
 }
-
+// if dropdown options is in url select it as default in the form
 if(location.href.includes("sortBy")) {
     if (location.href.includes("sortBy=kurztitle")) {
         dropdown.options[1].setAttribute('selected', true)
@@ -42,7 +43,7 @@ if(location.href.includes("sortBy")) {
         dropdown.options[3].setAttribute('selected', true)
     }
 }
-
+// add dropdown options to url when clicked
 for (let i = 0; i < dropdown.options.length; i++) {
     dropdown.options[i].addEventListener("click", () => {
         location.href = location.href.replace(/&sortBy=.*/g, "") + "&sortBy=" + dropdown.options[i].value

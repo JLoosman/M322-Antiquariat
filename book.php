@@ -13,6 +13,7 @@
 <body>
     <?php include("header.php"); ?>
     <?php
+    // function to simplify user input validation
     function test_input($data) {
         if(is_array($data)) {
             $arr = [];
@@ -27,7 +28,7 @@
             return $data;
         }
     }
-
+    // if id is set set up a query to get the data for the id the book belongs to
     if(isset($_GET["id"])) {
 
         include("connection.php");
@@ -44,6 +45,7 @@
         $available = $row["verkauft"];
         $category = $row["kategorie"];
 
+        // if the category id is higher than 13 write a standart output, else run a query to get the categories
         if ($category <= 13) {
             $statement = $conn->prepare("SELECT * FROM kategorien WHERE id = :kategorieID");
 
@@ -57,6 +59,7 @@
         }
 
     } else {
+        // if no id is set redirect back to katalog.php
         header("Location: katalog.php");
     }
     ?>

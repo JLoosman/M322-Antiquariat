@@ -15,6 +15,7 @@
     <title>Katalog</title>
 </head>
 <?php
+    // function to simplify input validation
     function test_input($data) {
         if(is_array($data)) {
             $arr = [];
@@ -30,6 +31,7 @@
         }
     }
 
+    // if side variable is set in url set side to this value
     if(!isset($_GET["site"])) {
         $site = 1;
     } else {
@@ -172,6 +174,7 @@
 
                     }
 
+                    // if an sorting option is present in the url apply it to the querry
                     if(isset($_GET["sortBy"])) {
                         $sort = test_input($_GET["sortBy"]);
 
@@ -207,9 +210,11 @@
                     ?>
                     <div id="sitechanger" class="site-changer">
                         <?php
+
                             $siteBefore = $site-1;
                             $siteAfter = $site+1;
 
+                            // if the next site would be over the maximal site limit it goes back to the first site
                             if($siteAfter > $totalSites) {
                                 $siteAfter = 1;
                             }

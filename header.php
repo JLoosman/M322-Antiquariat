@@ -1,4 +1,6 @@
 <?php
+
+// use different css stylesheet for different implementation of the header.php file
 if(basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['PHP_SELF']))  == "book.php" || basename(($_SERVER['PHP_SELF']))  == "aboutus.php") {
     $logo = "black";
 } else {
@@ -8,15 +10,6 @@ echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['P
     '<link href="css/header-dark.css" rel="stylesheet">'
  :
     '<link href="css/header.css" rel="stylesheet">';
-
-
-
-    if (!isset($_SESSION['visited'])) {
-        // echo "noch nie besucht";
-        $_SESSION['visited'] = true;
-    } else {
-        // echo "du warst zuvor schon hier";
-    }
 ?>
 <header>
     <div class="group">

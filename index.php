@@ -33,25 +33,28 @@
             <?php
                 include("connection.php");
 
+                // choose a random book from the first 500 books for the front page
                 $offset = rand(1, 500);
                 $query = "SELECT * FROM buecher LIMIT 1 OFFSET $offset";
 
                 /** @var TYPE_NAME $conn */
                 $statement = $conn->query($query);
 
+                // getting all the data for this book
                 while($row = $statement->fetch()) {
                     $title = $row["kurztitle"];
                     $author = $row["autor"];
                     $description = $row["title"];
                 }
 
+                // putting the data into html
                 echo "
                     <h1>$title</h1>
                     <p>$author</p>
                     <p>$description</p>
                 ";
 
-
+                // choose a random cover for the front page
                 $imgDir = "img/cover/";
                 $images = glob($imgDir . "*.{jpg, jpeg, png}", GLOB_BRACE);
                 $randImg = $images[array_rand($images)];
