@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="css/index.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/png" href="favicon.ico">
     <title>myLibrary</title>
 </head>
 <body>
@@ -28,15 +30,37 @@
     </svg>
     <section>
         <div class="content left-content">
-            <h1>Fortress of Blood</h1>
-            <p>by L. D. Goffigan</p>
-            <p>
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
-            </p>
+            <?php
+                include("connection.php");
+
+                $offset = rand(1, 500);
+                $query = "SELECT * FROM buecher LIMIT 1 OFFSET $offset";
+
+                /** @var TYPE_NAME $conn */
+                $statement = $conn->query($query);
+
+                while($row = $statement->fetch()) {
+                    $title = $row["kurztitle"];
+                    $author = $row["autor"];
+                    $description = $row["title"];
+                }
+
+                echo "
+                    <h1>$title</h1>
+                    <p>$author</p>
+                    <p>$description</p>
+                ";
+
+
+                $imgDir = "img/cover/";
+                $images = glob($imgDir . "*.{jpg, jpeg, png}", GLOB_BRACE);
+                $randImg = $images[array_rand($images)];
+            ?>
+
+
         </div>
         <div class="content right-content">
-            <img src="img/cover/labyrinth.jpg" alt="">
+            <img src=<?=$randImg?> alt="">
             <svg width="600" height="600" viewBox="0 0 676 676" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="338" cy="338" r="338" fill="#D9D9D9"/>
         </div>
