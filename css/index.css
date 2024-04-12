@@ -87,12 +87,14 @@ section {
     display: block;
     position: absolute;
     z-index: -1;
-    margin: 75px 0 0 200px;
+    margin: 75px 0 0 0;
+    /* margin: 75px 0 0 200px;*/
 }
 
 .right-content img {
     display: block;
     width: 500px;
     position: absolute;
-    margin-left: 250px;
+    margin-left: 50px;
+    /* margin-left: 250px;*/
 }
