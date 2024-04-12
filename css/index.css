@@ -83,12 +83,12 @@ section {
     position: relative;
 }
 
+
 .right-content svg {
     display: block;
     position: absolute;
     z-index: -1;
     margin: 75px 0 0 0;
-    /* margin: 75px 0 0 200px;*/
 }
 
 .right-content img {
@@ -96,5 +96,13 @@ section {
     width: 500px;
     position: absolute;
     margin-left: 50px;
-    /* margin-left: 250px;*/
+}
+
+@media screen and (min-width: 1800px) {
+    .right-content {
+        width: 40%;
+    }
+    .left-content {
+        width: 60%;
+    }
 }

@@ -6,6 +6,13 @@ main {
     align-items: center;
 }
 
+@media screen and (max-width: 1024px) {
+    main {
+        height: fit-content;
+        flex-direction: column;
+    }
+}
+
 .left-content {
     position: relative;
     padding: 50px;
@@ -25,6 +32,7 @@ main {
 }
 
 .right-content {
+    margin-left: 100px;
     padding: 50px;
     display: flex;
     flex-direction: column;
@@ -32,6 +40,39 @@ main {
 
 .right-content > * {
     margin: 10px 0;
+}
+
+.right-content .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right-content .top i {
+    font-size: 40px;
+    margin-left: 20px;
+}
+
+.right-content .top .available {
+    color: #64B667;
+}
+
+.right-content .top .unavailable {
+    color: #E50E0E;
+}
+
+.right-content .mid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right-content .mid h3 {
+    max-width: 50%;
+}
+
+.right-content .mid .category {
+    text-align: right;
 }
 
 .right-content h1 {
