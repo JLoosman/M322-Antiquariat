@@ -81,6 +81,10 @@ section {
     height: 35px;
 }
 
+.search-icon:hover {
+    cursor: pointer;
+}
+
 .fa-search {
     font-size: 20px;
 }

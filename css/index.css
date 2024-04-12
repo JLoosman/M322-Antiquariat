@@ -46,6 +46,10 @@ input:focus {
     color: #434343;
 }
 
+.search-bar button:hover {
+    cursor: pointer;
+}
+
 
 /* Section with Main Content */
 

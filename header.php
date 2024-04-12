@@ -1,5 +1,4 @@
 <?php
-session_start();
 if(basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['PHP_SELF']))  == "book.php" || basename(($_SERVER['PHP_SELF']))  == "aboutus.php") {
     $logo = "black";
 } else {
