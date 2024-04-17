@@ -10,16 +10,52 @@
     <title>Login</title>
 </head>
 <body>
+    <?php
+        $options = [
+                "cost" => 10
+        ];
+        // passwords are admin and tom
+        // echo password_hash("tom", PASSWORD_DEFAULT, $options);
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if(isset($_POST["username"]) && isset($_POST["password"])) {
+                $usernameLogin = $_POST["username"];
+                $passwordLogin = $_POST["password"];
 
+                include("connection.php");
+
+                $sql = "SELECT * FROM user
+                        WHERE username = :username";
+
+                /** @var TYPE_NAME $conn */
+                $statement = $conn->prepare($sql);
+                $statement->execute(["username" => $usernameLogin]);
+
+                $statementRow = $statement->fetch();
+                echo $usernameLogin;
+                if(isset($statementRow["password"])) {
+                    $passwordHash = $statementRow["password"];
+                    if (password_verify($passwordLogin, $passwordHash)) {
+                        $_SESSION["loggedIn"] = true;
+                        echo "You are logged in";
+                        header("Location: index.php");
+                    } else {
+                        echo "Password wrong";
+                    }
+                } else {
+                    echo "No such user";
+                }
+            }
+        }
+    ?>
     <div class="hero">
         <?php include("header.php") ?>
         <div class="center">
             <div class="login-form">
                 <h1>Login</h1>
-                <form action="">
-                    <input placeholder="Benutzername..." type="text">
-                    <input placeholder="Passwort..."type="text">
-                    <button>Login</button>
+                <form action="login.php" method="post">
+                    <input name="username" required placeholder="Benutzername..." type="text">
+                    <input name="password" required placeholder="Passwort..." type="text">
+                    <button type="submit">Login</button>
                 </form>
                 <div class="options">
                     <a href="">Passwort vergessen?</a>
