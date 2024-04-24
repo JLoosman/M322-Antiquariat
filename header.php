@@ -1,15 +1,22 @@
 <?php
+if(isset($_SESSION["loggedIn"])) {
+    if($_SESSION["loggedIn"]) {
+        $loggedIn = true;
+    } else {
+        $loggedIn = false;
+    }
+} else {
+    $loggedIn = false;
+}
 
 // use different css stylesheet for different implementation of the header.php file
-if(basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['PHP_SELF']))  == "book.php" || basename(($_SERVER['PHP_SELF']))  == "aboutus.php") {
+if(basename($_SERVER['PHP_SELF'])  == "katalog.php" || basename($_SERVER['PHP_SELF'])  == "book.php" || basename($_SERVER['PHP_SELF'])  == "aboutus.php" || basename($_SERVER['PHP_SELF'])  == "account.php") {
     $logo = "black";
+    echo '<link href="css/header-dark.css" rel="stylesheet">';
 } else {
     $logo = "white";
+    echo '<link href="css/header.css" rel="stylesheet">';
 }
-echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['PHP_SELF']))  == "book.php" || basename(($_SERVER['PHP_SELF']))  == "aboutus.php" ?
-    '<link href="css/header-dark.css" rel="stylesheet">'
- :
-    '<link href="css/header.css" rel="stylesheet">';
 ?>
 <header>
     <div class="group">
@@ -23,6 +30,6 @@ echo basename(($_SERVER['PHP_SELF']))  == "katalog.php" || basename(($_SERVER['P
     <div class="group">
         <a href="katalog.php?site=1" class="nav-item">Katalog</a>
         <a href="aboutus.php" class="nav-item">Über Uns</a>
-        <a href="login.php" class="nav-item">Log In</a>
+        <a href=<?=$loggedIn ? "account.php" : "login.php"?> class="nav-item"><?=$loggedIn ? "My Account" : "Log In"?></a>
     </div>
 </header>

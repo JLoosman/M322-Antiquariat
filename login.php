@@ -1,3 +1,5 @@
+<?php session_start()?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -31,13 +33,13 @@
                 $statement->execute(["username" => $usernameLogin]);
 
                 $statementRow = $statement->fetch();
-                echo $usernameLogin;
+
                 if(isset($statementRow["password"])) {
                     $passwordHash = $statementRow["password"];
                     if (password_verify($passwordLogin, $passwordHash)) {
                         $_SESSION["loggedIn"] = true;
-                        echo "You are logged in";
-                        header("Location: index.php");
+                        // echo "You are logged in";
+                        // header("Location: index.php");
                     } else {
                         echo "Password wrong";
                     }
@@ -54,7 +56,7 @@
                 <h1>Login</h1>
                 <form action="login.php" method="post">
                     <input name="username" required placeholder="Benutzername..." type="text">
-                    <input name="password" required placeholder="Passwort..." type="text">
+                    <input name="password" required placeholder="Passwort..." type="password">
                     <button type="submit">Login</button>
                 </form>
                 <div class="options">
