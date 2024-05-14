@@ -10,7 +10,7 @@ if(isset($_SESSION["loggedIn"])) {
 }
 
 // use different css stylesheet for different implementation of the header.php file
-if(basename($_SERVER['PHP_SELF'])  == "katalog.php" || basename($_SERVER['PHP_SELF'])  == "book.php" || basename($_SERVER['PHP_SELF'])  == "aboutus.php" || basename($_SERVER['PHP_SELF'])  == "account.php") {
+if(basename($_SERVER['PHP_SELF'])  == "katalog.php" || basename($_SERVER['PHP_SELF'])  == "book.php" || basename($_SERVER['PHP_SELF'])  == "aboutus.php" || basename($_SERVER['PHP_SELF'])  == "account.php" || basename($_SERVER['PHP_SELF'])  == "kunden.php") {
     $logo = "black";
     echo '<link href="css/header-dark.css" rel="stylesheet">';
 } else {
@@ -28,6 +28,7 @@ if(basename($_SERVER['PHP_SELF'])  == "katalog.php" || basename($_SERVER['PHP_SE
         <a href="index.php" class="nav-item">myLibrary</a>
     </div>
     <div class="group">
+        <?= $loggedIn ? '<a href="kunden.php?site=1" class="nav-item">Kunden</a>' : ""?>
         <a href="katalog.php?site=1" class="nav-item">Katalog</a>
         <a href="aboutus.php" class="nav-item">Über Uns</a>
         <a href=<?=$loggedIn ? "account.php" : "login.php"?> class="nav-item"><?=$loggedIn ? "My Account" : "Log In"?></a>
