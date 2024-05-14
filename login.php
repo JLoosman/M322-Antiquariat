@@ -17,7 +17,7 @@
                 "cost" => 10
         ];
         // passwords are admin and tom
-        // echo password_hash("tom", PASSWORD_DEFAULT, $options);
+        // echo password_hash("admin", PASSWORD_DEFAULT, $options);
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(isset($_POST["username"]) && isset($_POST["password"])) {
                 $usernameLogin = $_POST["username"];
@@ -25,8 +25,8 @@
 
                 include("connection.php");
 
-                $sql = "SELECT * FROM user
-                        WHERE username = :username";
+                $sql = "SELECT * FROM benutzer
+                        WHERE benutzername = :username";
 
                 /** @var TYPE_NAME $conn */
                 $statement = $conn->prepare($sql);
@@ -34,12 +34,12 @@
 
                 $statementRow = $statement->fetch();
 
-                if(isset($statementRow["password"])) {
-                    $passwordHash = $statementRow["password"];
+                if(isset($statementRow["passwort"])) {
+                    $passwordHash = $statementRow["passwort"];
+                    echo $passwordHash;
                     if (password_verify($passwordLogin, $passwordHash)) {
                         $_SESSION["loggedIn"] = true;
-                        // echo "You are logged in";
-                        // header("Location: index.php");
+                        header("Location: account.php");
                     } else {
                         echo "Password wrong";
                     }

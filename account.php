@@ -1,20 +1,28 @@
 <?php
 session_start();
 
-include("header.php");
-
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $_SESSION["loggedIn"] = false;
-    header("Location: index.php");
+    if(isset($_POST["button"])) {
+        if($_POST["button"] == "changePassword") {
+            // echo "password";
+            echo (
+                "<input type='text'>
+                <input type='text'>"
+            );
+        } elseif ($_POST["button"] == "signOut") {
+            // echo "submit";
+            $_SESSION["loggedIn"] = false;
+            session_destroy();
+            header("Location: index.php");
+        }
+    }
 }
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scales=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="css/account.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
@@ -23,9 +31,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>My Account</title>
 </head>
 <body>
-    <h1>Username: admin</h1>
-    <form action="account.php" method="post">
-        <button type="submit">Abmelden</button>
-    </form>
+    <?php include("header.php")?>
+    <main>
+        <h1>Username: admin</h1>
+        <form action="account.php" method="post">
+            <button name=button value="changePassword" type="submit">Passwort ändern</button>
+            <button name=button value="signOut" type="submit">Abmelden</button>
+        </form>
+    </main>
 </body>
 </html>

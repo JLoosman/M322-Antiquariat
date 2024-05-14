@@ -1,0 +1,9 @@
+main {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+main > * {
+    margin: 20px;
+}
