@@ -63,17 +63,15 @@
                         </button>
                     </form>
                 </div>
-                <svg width="36" height="40" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M34 32H32V30C32 29.4696 31.7893 28.9609 31.4142 28.5858C31.0391 28.2107 30.5304 28 30 28C29.4696 28 28.9609 28.2107 28.5858 28.5858C28.2107 28.9609 28 29.4696 28 30V32H26C25.4696 32 24.9609 32.2107 24.5858 32.5858C24.2107 32.9609 24 33.4696 24 34C24 34.5304 24.2107 35.0391 24.5858 35.4142C24.9609 35.7893 25.4696 36 26 36H28V38C28 38.5304 28.2107 39.0391 28.5858 39.4142C28.9609 39.7893 29.4696 40 30 40C30.5304 40 31.0391 39.7893 31.4142 39.4142C31.7893 39.0391 32 38.5304 32 38V36H34C34.5304 36 35.0391 35.7893 35.4142 35.4142C35.7893 35.0391 36 34.5304 36 34C36 33.4696 35.7893 32.9609 35.4142 32.5858C35.0391 32.2107 34.5304 32 34 32ZM20 36H6C5.46957 36 4.96086 35.7893 4.58579 35.4142C4.21071 35.0391 4 34.5304 4 34V6C4 5.46957 4.21071 4.96086 4.58579 4.58579C4.96086 4.21071 5.46957 4 6 4H16V10C16 11.5913 16.6321 13.1174 17.7574 14.2426C18.8826 15.3679 20.4087 16 22 16H28V22C28 22.5304 28.2107 23.0391 28.5858 23.4142C28.9609 23.7893 29.4696 24 30 24C30.5304 24 31.0391 23.7893 31.4142 23.4142C31.7893 23.0391 32 22.5304 32 22V14C32 14 32 14 32 13.88C31.9792 13.6963 31.9389 13.5153 31.88 13.34V13.16C31.7838 12.9544 31.6556 12.7653 31.5 12.6L19.5 0.6C19.3347 0.444432 19.1456 0.316162 18.94 0.22C18.8738 0.208419 18.8062 0.208419 18.74 0.22C18.5455 0.116006 18.3365 0.041844 18.12 0H6C4.4087 0 2.88258 0.632141 1.75736 1.75736C0.632141 2.88258 0 4.4087 0 6V34C0 35.5913 0.632141 37.1174 1.75736 38.2426C2.88258 39.3679 4.4087 40 6 40H20C20.5304 40 21.0391 39.7893 21.4142 39.4142C21.7893 39.0391 22 38.5304 22 38C22 37.4696 21.7893 36.9609 21.4142 36.5858C21.0391 36.2107 20.5304 36 20 36ZM20 6.82L25.18 12H22C21.4696 12 20.9609 11.7893 20.5858 11.4142C20.2107 11.0391 20 10.5304 20 10V6.82ZM10 12C9.46957 12 8.96086 12.2107 8.58579 12.5858C8.21071 12.9609 8 13.4696 8 14C8 14.5304 8.21071 15.0391 8.58579 15.4142C8.96086 15.7893 9.46957 16 10 16H12C12.5304 16 13.0391 15.7893 13.4142 15.4142C13.7893 15.0391 14 14.5304 14 14C14 13.4696 13.7893 12.9609 13.4142 12.5858C13.0391 12.2107 12.5304 12 12 12H10ZM20 28H10C9.46957 28 8.96086 28.2107 8.58579 28.5858C8.21071 28.9609 8 29.4696 8 30C8 30.5304 8.21071 31.0391 8.58579 31.4142C8.96086 31.7893 9.46957 32 10 32H20C20.5304 32 21.0391 31.7893 21.4142 31.4142C21.7893 31.0391 22 30.5304 22 30C22 29.4696 21.7893 28.9609 21.4142 28.5858C21.0391 28.2107 20.5304 28 20 28ZM22 20H10C9.46957 20 8.96086 20.2107 8.58579 20.5858C8.21071 20.9609 8 21.4696 8 22C8 22.5304 8.21071 23.0391 8.58579 23.4142C8.96086 23.7893 9.46957 24 10 24H22C22.5304 24 23.0391 23.7893 23.4142 23.4142C23.7893 23.0391 24 22.5304 24 22C24 21.4696 23.7893 20.9609 23.4142 20.5858C23.0391 20.2107 22.5304 20 22 20Z" fill="#434343"/>
+                <svg width="40" height="34" viewBox="0 0 40 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M38 14H36V12C36 11.4696 35.7893 10.9609 35.4142 10.5858C35.0391 10.2107 34.5304 10 34 10C33.4696 10 32.9609 10.2107 32.5858 10.5858C32.2107 10.9609 32 11.4696 32 12V14H30C29.4696 14 28.9609 14.2107 28.5858 14.5858C28.2107 14.9609 28 15.4696 28 16C28 16.5304 28.2107 17.0391 28.5858 17.4142C28.9609 17.7893 29.4696 18 30 18H32V20C32 20.5304 32.2107 21.0391 32.5858 21.4142C32.9609 21.7893 33.4696 22 34 22C34.5304 22 35.0391 21.7893 35.4142 21.4142C35.7893 21.0391 36 20.5304 36 20V18H38C38.5304 18 39.0391 17.7893 39.4142 17.4142C39.7893 17.0391 40 16.5304 40 16C40 15.4696 39.7893 14.9609 39.4142 14.5858C39.0391 14.2107 38.5304 14 38 14ZM22.6 17.44C23.6672 16.5163 24.5231 15.3738 25.1097 14.09C25.6964 12.8063 26 11.4114 26 10C26 7.34784 24.9464 4.8043 23.0711 2.92893C21.1957 1.05357 18.6522 0 16 0C13.3478 0 10.8043 1.05357 8.92893 2.92893C7.05357 4.8043 6 7.34784 6 10C5.99998 11.4114 6.3036 12.8063 6.89025 14.09C7.4769 15.3738 8.33284 16.5163 9.4 17.44C6.60028 18.7078 4.22493 20.7551 2.55796 23.3371C0.89099 25.9191 0.00294371 28.9266 0 32C0 32.5304 0.210714 33.0391 0.585786 33.4142C0.960859 33.7893 1.46957 34 2 34C2.53043 34 3.03914 33.7893 3.41421 33.4142C3.78929 33.0391 4 32.5304 4 32C4 28.8174 5.26428 25.7652 7.51472 23.5147C9.76516 21.2643 12.8174 20 16 20C19.1826 20 22.2348 21.2643 24.4853 23.5147C26.7357 25.7652 28 28.8174 28 32C28 32.5304 28.2107 33.0391 28.5858 33.4142C28.9609 33.7893 29.4696 34 30 34C30.5304 34 31.0391 33.7893 31.4142 33.4142C31.7893 33.0391 32 32.5304 32 32C31.9971 28.9266 31.109 25.9191 29.442 23.3371C27.7751 20.7551 25.3997 18.7078 22.6 17.44ZM16 16C14.8133 16 13.6533 15.6481 12.6666 14.9888C11.6799 14.3295 10.9108 13.3925 10.4567 12.2961C10.0026 11.1997 9.88378 9.99334 10.1153 8.82946C10.3468 7.66557 10.9182 6.59647 11.7574 5.75736C12.5965 4.91824 13.6656 4.3468 14.8295 4.11529C15.9933 3.88378 17.1997 4.0026 18.2961 4.45672C19.3925 4.91085 20.3295 5.67988 20.9888 6.66658C21.6481 7.65327 22 8.81331 22 10C22 11.5913 21.3679 13.1174 20.2426 14.2426C19.1174 15.3679 17.5913 16 16 16Z" fill="#434343"/>
                 </svg>
             </div>
             <div class="search-right">
                 <h3>Sortieren nach:</h3>
                 <select name="sortBy" id="dropdown" class="dropdown">
                     <option selected value="id">Nummer (ID)</option>
-                    <option value="kurztitle">Titel</option>
-                    <option value="kategorie">Kategorie</option>
-                    <option value="autor">Autor</option>
+                    <option value="name">Name</option>
                 </select>
                 <i id="sortingSymbol" class="fa-solid fa-arrow-down-wide-short"></i>
             </div>
@@ -83,49 +81,18 @@
                 <form>
                     <h3>Filters</h3>
                     <div class="filter-group">
-                        <p>Zustand</p>
-                        <input form="searchQuery" type="checkbox" id="G" value="G" name="zustand[]" <?= isCheckboxSet("zustand", "G")?>>
-                            <label for="G">Gut</label><br>
-                        <input form="searchQuery" type="checkbox" id="M" value="M" name="zustand[]" <?= isCheckboxSet("zustand", "M")?>>
-                            <label for="M">Mittel</label><br>
-                        <input form="searchQuery" type="checkbox" id="S" value="S" name="zustand[]" <?= isCheckboxSet("zustand", "S")?>>
-                            <label for="S">Schlecht</label><br>
+                        <p>Geschlecht</p>
+                        <input form="searchQuery" type="checkbox" id="M" value="M" name="geschlecht[]" <?= isCheckboxSet("geschlecht", "M")?>>
+                            <label for="M">Männlich</label><br>
+                        <input form="searchQuery" type="checkbox" id="F" value="F" name="geschlecht[]" <?= isCheckboxSet("geschlecht", "F")?>>
+                            <label for="F">Weiblich</label><br>
                     </div>
                     <div class="filter-group">
-                        <p>Verfügbarkeit</p>
-                        <input form="searchQuery" type="checkbox" id="Vorhanden" value="0" name="verfuegbarkeit[]" <?= isCheckboxSet("verfuegbarkeit", "0")?>>
-                            <label for="Vorhanden">Vorhanden</label><br>
-                        <input form="searchQuery" type="checkbox" id="Ausgelehnt" value="1" name="verfuegbarkeit[]" <?= isCheckboxSet("verfuegbarkeit", "1")?>>
-                            <label for="Ausgelehnt">Verkauft</label><br>
-                    </div>
-                    <div class="filter-group">
-                        <p>Kategorie</p>
-                        <input form="searchQuery" type="checkbox" id="Alte Drucke, Bibeln" value="1" name="kategorie[]" <?= isCheckboxSet("kategorie", "1")?>>
-                            <label for="Alte Drucke, Bibeln">Alte Drucke, Bibeln</label><br>
-                        <input form="searchQuery" type="checkbox" id="Geographie und Reisen" value="2" name="kategorie[]" <?= isCheckboxSet("kategorie", "2")?>>
-                            <label for="Geographie und Reisen">Geographie und Reisen</label><br>
-                        <input form="searchQuery" type="checkbox" id="Geschichtswissenschaften" value="3" name="kategorie[]" <?= isCheckboxSet("kategorie", "3")?>>
-                            <label for="Geschichtswissenschaften">Geschichtswissenschaften</label><br>
-                        <input form="searchQuery" type="checkbox" id="Naturwissenschaften" value="4" name="kategorie[]" <?= isCheckboxSet("kategorie", "4")?>>
-                            <label for="Naturwissenschaften">Naturwissenschaften</label><br>
-                        <input form="searchQuery" type="checkbox" id="Kinderbücher" value="5" name="kategorie[]" <?= isCheckboxSet("kategorie", "5")?>>
-                            <label for="Kinderbücher">Kinderbücher</label><br>
-                        <input form="searchQuery" type="checkbox" id="Moderne Literatur und Kunst" value="6" name="kategorie[]" <?= isCheckboxSet("kategorie", "6")?>>
-                            <label for="Moderne Literatur und Kunst">Moderne Literatur und Kunst</label><br>
-                        <input form="searchQuery" type="checkbox" id="Moderne Künstlergraphik" value="7" name="kategorie[]" <?= isCheckboxSet("kategorie", "7")?>>
-                            <label for="Moderne Künstlergraphik">Moderne Künstlergraphik</label><br>
-                        <input form="searchQuery" type="checkbox" id="Kunstwissenschaften" value="8" name="kategorie[]" <?= isCheckboxSet("kategorie", "8")?>>
-                            <label for="Kunstwissenschaften">Kunstwissenschaften</label><br>
-                        <input form="searchQuery" type="checkbox" id="Architektur" value="9" name="kategorie[]" <?= isCheckboxSet("kategorie", "9")?>>
-                            <label for="Architektur">Architektur</label><br>
-                        <input form="searchQuery" type="checkbox" id="Technik" value="10" name="kategorie[]" <?= isCheckboxSet("kategorie", "10")?>>
-                            <label for="Technik">Technik</label><br>
-                        <input form="searchQuery" type="checkbox" id="Naturwissenschaften - Medizin" value="11" name="kategorie[]" <?= isCheckboxSet("kategorie", "11")?>>
-                            <label for="Naturwissenschaften - Medizin">Naturwissenschaften - Medizin</label><br>
-                        <input form="searchQuery" type="checkbox" id="Ozeanien" value="12" name="kategorie[] <?= isCheckboxSet("kategorie", "12")?>">
-                            <label for="Ozeanien">Ozeanien</label><br>
-                        <input form="searchQuery" type="checkbox" id="Afrika" value="13" name="kategorie[]" <?= isCheckboxSet("kategorie", "13")?>>
-                            <label for="Afrika">Afrika</label><br>
+                        <p>Kontakt per Email</p>
+                        <input form="searchQuery" type="checkbox" id="Erwünscht" value="1" name="kontakt[]" <?= isCheckboxSet("kontakt", "1")?>>
+                            <label for="Erwünscht">Erwünscht</label><br>
+                        <input form="searchQuery" type="checkbox" id="Nicht Erwünscht" value="0" name="kontakt[]" <?= isCheckboxSet("kontakt", "0")?>>
+                            <label for="Nicht Erwünscht">Nicht Erwünscht</label><br>
                     </div>
                 </form>
             </div>
@@ -144,6 +111,32 @@
                         $q = test_input($_GET["q"]);
                         // add search criterias to SQL query
                         $query = $query . " WHERE (kid LIKE '%$q%' OR vorname LIKE '%$q%')";
+                    }
+
+                    // check for every type of checkbox if its used and add to SQL query if needed
+                    if(isset($_GET["geschlecht"])) {
+                        $geschlecht = test_input($_GET["geschlecht"]);
+                        if(count($geschlecht) > 1) {
+                            $query = $query . " AND (";
+                            foreach ($geschlecht as $item) {
+                                $query = $query . " geschlecht = '$item' OR";
+                            }
+                            $query = rtrim($query, " OR") . ")";
+                        } else {
+                            $query = $query . " AND geschlecht = '$geschlecht[0]'";
+                        }
+                    }
+                    if(isset($_GET["kontakt"])) {
+                        $kontakt = test_input($_GET["kontakt"]);
+                        if(count($kontakt) > 1) {
+                            $query = $query . " AND (";
+                            foreach ($kontakt as $item) {
+                                $query = $query . " kontaktpermail = '$item' OR";
+                            }
+                            $query = rtrim($query, " OR") . ")";
+                        } else {
+                            $query = $query . " AND kontaktpermail = '$kontakt[0]'";
+                        }
                     }
 
                     // if an sorting option is present in the url apply it to the querry
