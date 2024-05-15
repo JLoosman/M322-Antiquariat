@@ -16,6 +16,10 @@ section {
     align-items: center;
 }
 
+.search-left > svg {
+    height: 30px;
+}
+
 .search-right {
     display: flex;
     align-items: center;

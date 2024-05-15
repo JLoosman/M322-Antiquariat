@@ -70,8 +70,8 @@
             <div class="search-right">
                 <h3>Sortieren nach:</h3>
                 <select name="sortBy" id="dropdown" class="dropdown">
-                    <option selected value="id">Nummer (ID)</option>
-                    <option value="name">Name</option>
+                    <option selected value="kid">Nummer (ID)</option>
+                    <option value="vorname">Name</option>
                 </select>
                 <i id="sortingSymbol" class="fa-solid fa-arrow-down-wide-short"></i>
             </div>
@@ -194,5 +194,5 @@
     </section>
     <?php include("footer.php") ?>
 </body>
-<script src="script.js"></script>
+<script src="kunden.js"></script>
 </html>

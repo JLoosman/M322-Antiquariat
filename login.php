@@ -37,7 +37,7 @@
 
                 if(isset($statementRow["passwort"])) {
                     $passwordHash = $statementRow["passwort"];
-                    echo $passwordHash;
+                    // echo $passwordHash;
                     if (password_verify($passwordLogin, $passwordHash)) {
                         $_SESSION["loggedIn"] = true;
                         header("Location: account.php");
