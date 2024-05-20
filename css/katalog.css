@@ -102,6 +102,82 @@ section {
     color: #434343;
 }
 
+/* Modal */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    border-radius: 15px;
+    background-color: #FFF;
+}
+
+.modal-frame form {
+    margin-top: 40px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-frame form input {
+    margin-bottom: 20px;
+    padding: 8px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+}
+
+.modal-frame form textarea {
+    padding: 8px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: #F0F0F0;
+}
+
+.modal-frame form div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-frame form div input {
+    width: 48%;
+}
+
+.modal-frame form div input[type=checkbox] {
+    width: 10%;
+}
+
+.modal-frame form div label {
+    margin-left: 5px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
 
 /* Main Content of Site */
 .content {
@@ -137,10 +213,6 @@ section {
     justify-content: center;
     width: 100%;
     max-width: 1300px;
-}
-
-#noResults {
-
 }
 
 .hidden {
