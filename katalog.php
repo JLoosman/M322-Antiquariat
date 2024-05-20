@@ -66,8 +66,22 @@
                 </div>
                 <input type="text" placeholder="Autor..." name="autor">
                 <input type="text" placeholder="Sprache..." name="sprache">
-                <div></div>
+                <div>
+                    <label>Zustand?</label>
+                    <div>
+                        <label for="G">Gut</label>
+                        <input type="radio" value="G" name="zustand" id="G">
+                        <label for="M">Mittel</label>
+                        <input type="radio" value="M" name="zustand" id="G">
+                        <label for="S">Schlecht</label>
+                        <input type="radio" value="S" name="zustand" id="G">
+                    </div>
+                </div>
                 <textarea placeholder="Beschreibung..." name="" id="" cols="30" rows="10"></textarea>
+                <div>
+                    <button class="btn" onclick="close()">Abbrechen</button>
+                    <button class="btn btn-dark" type="submit">Speichern</button>
+                </div>
             </form>
         </div>
         <div class="overlay"></div>
