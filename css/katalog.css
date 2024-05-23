@@ -150,6 +150,14 @@ section {
     background-color: #F0F0F0;
 }
 
+.modal-frame form .dropdown {
+    margin-bottom: 20px;
+    padding: 8px;
+    height: 32px;
+    width: 48%;
+    border-radius: 10px;
+}
+
 .modal-frame form > div {
     width: 100%;
     display: flex;

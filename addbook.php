@@ -23,11 +23,13 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
 
     include("connection.php");
 
+    /** @var TYPE_NAME $conn */
+    $newID = $conn->query("SELECT max(id) FROM buecher")->fetchColumn() + 1;
 
 
     /** @var TYPE_NAME $conn */
     $statement = $conn->prepare($query);
-    $statement->execute([99998, $katalog, $number, $title, $kategorie, $verfuegbarkeit, "", $autor, $beschreibung ,$sprache, "", "", $zustand]);
+    $statement->execute([$newID, $katalog, $number, $title, $kategorie, $verfuegbarkeit, "", $autor, $beschreibung ,$sprache, "", "", $zustand]);
 }
 
 header("Location: katalog.php?site=1");
