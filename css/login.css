@@ -71,3 +71,28 @@ h1 {
     color: #434343;
     text-decoration: none;
 }
+
+.failedLogin {
+    position: absolute;
+    width: 250px;
+    top: 100px;
+    padding: 10px;
+    color: #F0F0F0;
+    background-color: #E50E0E;
+    animation: fly ease-in-out 0.5s forwards, hide ease 4s forwards;
+}
+
+@keyframes fly {
+    from {
+        transform: translateX(-250px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes hide {
+    to {
+        visibility: hidden;
+    }
+}

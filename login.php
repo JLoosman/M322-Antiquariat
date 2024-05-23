@@ -40,16 +40,22 @@
                     // echo $passwordHash;
                     if (password_verify($passwordLogin, $passwordHash)) {
                         $_SESSION["loggedIn"] = true;
+                        $_SESSION["username"] = $usernameLogin;
                         header("Location: account.php");
                     } else {
-                        echo "Password wrong";
+                        echo '<div class="failedLogin">
+                                    <h3>Versuche es erneut</h3>
+                                </div>';
                     }
                 } else {
-                    echo "No such user";
+                    echo '<div class="failedLogin">
+                                    <h3>Versuche es erneut</h3>
+                                </div>';
                 }
             }
         }
     ?>
+
     <div class="hero">
         <?php include("header.php") ?>
         <div class="center">

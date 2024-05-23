@@ -1,9 +1,57 @@
+body {
+    height: 100vh;
+}
 main {
+    height: 80%;
     padding: 40px;
     display: flex;
     flex-direction: column;
 }
 
-main > * {
+section {
+    height: 400px;
+    width: 100%;
+}
+
+.account > * {
     margin: 20px;
+}
+
+.dashboard {
+}
+
+.container {
+    padding: 0 200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard h1 {
+    margin-bottom: 20px;
+}
+
+.box {
+    padding: 30px;
+    height: 250px;
+    width: 250px;
+    color: #F0F0F0;
+    background-color: #094D8D;
+    border-radius: 30px;
+}
+
+.box > .count {
+    font-size: 70px;
+    margin-top: 30px;
+}
+
+button {
+    padding: 8px;
+    color: #F0F0F0;
+    background-color: #434343;
+    border: none;
+    border-radius: 10px;
+}
+
+button:hover {
+    background-color: #636363;
 }

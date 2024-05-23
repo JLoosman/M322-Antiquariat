@@ -33,11 +33,41 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <?php include("header.php")?>
     <main>
-        <h1>Username: admin</h1>
-        <form action="account.php" method="post">
-            <button name=button value="changePassword" type="submit">Passwort ändern</button>
-            <button name=button value="signOut" type="submit">Abmelden</button>
-        </form>
+        <?php
+            include("connection.php");
+
+        /** @var TYPE_NAME $conn */
+        $totalBooks = $conn->query("SELECT COUNT(*) FROM buecher")->fetchColumn();
+
+        $soldBooks = $conn->query("SELECT COUNT(*) FROM buecher WHERE verkauft = 1")->fetchColumn();
+
+        $totalCustomers = $conn->query("SELECT COUNT(*) FROM kunden")->fetchColumn();
+        ?>
+        <section class="dashboard">
+            <h1>Dashboard:</h1>
+            <div class="container">
+                <div class="box">
+                    <h1 class="count"><?=$totalBooks?></h1>
+                    <h3>Totale Bücher</h3>
+                </div>
+                <div class="box">
+                    <h1 class="count"><?=$soldBooks?></h1>
+                    <h3>Verkaufte Bücher</h3>
+                </div>
+                <div class="box">
+                    <h1 class="count"><?=$totalCustomers?></h1>
+                    <h3>Totale Kunden</h3>
+                </div>
+            </div>
+        </section>
+        <section class="account">
+            <h1>Account:</h1>
+            <h1>Benutzername: <?=$_SESSION["username"]?></h1>
+            <form action="account.php" method="post">
+                <button name=button value="changePassword" type="submit">Passwort ändern</button>
+                <button name=button value="signOut" type="submit">Abmelden</button>
+            </form>
+        </section>
     </main>
 </body>
 </html>
