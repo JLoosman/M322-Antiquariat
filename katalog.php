@@ -53,7 +53,7 @@
     <section id="modal" class="hidden">
         <div class="modal-frame">
             <h1>Buch hinzufügen</h1>
-            <form action="">
+            <form action="addbook.php" method="post">
                 <input type="text" placeholder="Titel..." name="title">
                 <input type="text" placeholder="Nummer..." name="number">
                 <div>
@@ -62,7 +62,7 @@
                 </div>
                 <div>
                     <label for="verfuegbar">Verfügbar?</label>
-                    <input id="verfuegbar" type="checkbox">
+                    <input id="verfuegbar" name="verfuegbarkeit" type="checkbox">
                 </div>
                 <input type="text" placeholder="Autor..." name="autor">
                 <input type="text" placeholder="Sprache..." name="sprache">
@@ -77,7 +77,7 @@
                         <input type="radio" value="S" name="zustand" id="G">
                     </div>
                 </div>
-                <textarea placeholder="Beschreibung..." name="" id="" cols="30" rows="10"></textarea>
+                <textarea placeholder="Beschreibung..." name="beschreibung" id="" cols="30" rows="10"></textarea>
                 <div>
                     <button class="btn" onclick="closeModal()" type="button">Abbrechen</button>
                     <button class="btn btn-dark" type="submit">Speichern</button>
