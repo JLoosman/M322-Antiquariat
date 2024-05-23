@@ -1,5 +1,5 @@
 const books = document.getElementById("books");
-const cardArray = document.getElementsByClassName("card");
+const cardArray = document.getElementsByClassName("cardContainer");
 const newDiv = document.createElement("div");
 
 const sort = document.getElementById("sortingSymbol");
@@ -8,7 +8,7 @@ const dropdown = document.getElementById("dropdown");
 const noResult = document.getElementById("noResults");
 
 // making sure the sorting arrows on the bottom of katalog.php are always on the bottom by always keeping the amount of cards dividable by 4
-newDiv.classList.add("card");
+newDiv.classList.add("cardContainer");
 
 if(cardArray.length % 4 !== 0) {
     for(let i = 0; i < 12; i++) {
