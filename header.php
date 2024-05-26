@@ -10,7 +10,7 @@ if(isset($_SESSION["loggedIn"])) {
 }
 
 // use different css stylesheet for different implementation of the header.php file
-if(basename($_SERVER['PHP_SELF'])  == "katalog.php" || basename($_SERVER['PHP_SELF'])  == "book.php" || basename($_SERVER['PHP_SELF'])  == "aboutus.php" || basename($_SERVER['PHP_SELF'])  == "account.php" || basename($_SERVER['PHP_SELF'])  == "kunden.php") {
+if(basename($_SERVER['PHP_SELF'])  == "katalog.php" || basename($_SERVER['PHP_SELF'])  == "book.php" || basename($_SERVER['PHP_SELF'])  == "aboutus.php" || basename($_SERVER['PHP_SELF'])  == "account.php" || basename($_SERVER['PHP_SELF'])  == "kunden.php" || basename($_SERVER['PHP_SELF'])  == "addbook.php") {
     $logo = "black";
     echo '<link href="css/header-dark.css" rel="stylesheet">';
 } else {

@@ -16,7 +16,7 @@ section {
     align-items: center;
 }
 
-.search-left > svg {
+.search-left > a > svg {
     height: 30px;
 }
 
@@ -100,115 +100,6 @@ section {
     width: 40px;
     font-size: 30px;
     color: #434343;
-}
-
-/* Modal */
-
-#modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-}
-
-.modal-frame {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 50px;
-    border-radius: 15px;
-    background-color: #FFF;
-}
-
-.modal-frame form {
-    margin-top: 40px;
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.modal-frame form input {
-    margin-bottom: 20px;
-    padding: 8px;
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    background-color: #F0F0F0;
-}
-
-.modal-frame form textarea {
-    margin-bottom: 20px;
-    padding: 8px;
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    background-color: #F0F0F0;
-}
-
-.modal-frame form .dropdown {
-    margin-bottom: 20px;
-    padding: 8px;
-    height: 32px;
-    width: 48%;
-    border-radius: 10px;
-}
-
-.modal-frame form > div {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.modal-frame form div input {
-    width: 48%;
-}
-
-.modal-frame form div input[type=checkbox] {
-    width: 10%;
-}
-
-.modal-frame form div > label {
-    margin-left: 5px;
-    user-select: none;
-    -webkit-user-select: none;
-}
-
-.modal-frame form > div > div {
-    display: flex;
-    justify-content: center;
-    margin-bottom:  20px;
-}
-.modal-frame form > div > div > input {
-    margin-left: 10px;
-    height: 20px;
-    width: 20px;
-}
-
-.btn {
-    padding: 10px;
-    border: none;
-    border-radius: 10px;
-}
-
-.btn-dark {
-    color: #F0F0F0;
-    background-color: #434343;
-}
-
-#overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.2);
-    z-index: -1;
 }
 
 /* Main Content of Site */
