@@ -35,6 +35,8 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
 
     header("Location: katalog.php?site=1");
 
+} else {
+    header("Location: katalog.php?site=1");
 }
 ?>
 
