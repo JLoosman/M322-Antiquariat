@@ -91,6 +91,11 @@ header {
     width: 10%;
 }
 
+.modal-frame form div input[type=radio] {
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
 .modal-frame form div > label {
     margin-left: 5px;
     user-select: none;

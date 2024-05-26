@@ -4,9 +4,9 @@ session_start();
 if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "POST"){
 
     isset($_POST["title"]) ? $title = $_POST["title"] : $title = "";
-    isset($_POST["number"]) ? $number = $_POST["number"] : $number = "";
-    isset($_POST["kategorie"]) ? $kategorie = $_POST["kategorie"] : $kategorie = "";
-    isset($_POST["katalog"]) ? $katalog = $_POST["katalog"] : $katalog = "";
+    isset($_POST["number"]) ? $number = $_POST["number"] : $number = 0;
+    isset($_POST["kategorie"]) ? $kategorie = $_POST["kategorie"] : $kategorie = 0;
+    isset($_POST["katalog"]) ? $katalog = $_POST["katalog"] : $katalog = 0;
     isset($_POST["verfuegbarkeit"]) ? $verfuegbarkeit = $_POST["verfuegbarkeit"] : $verfuegbarkeit = 0;
     isset($_POST["autor"]) ? $autor = $_POST["autor"] : $autor = "";
     isset($_POST["sprache"]) ? $sprache = $_POST["sprache"] : $sprache = "";
@@ -23,15 +23,18 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
 
     include("connection.php");
 
+    // query to get new ID for new entry
     /** @var TYPE_NAME $conn */
     $newID = $conn->query("SELECT max(id) FROM buecher")->fetchColumn() + 1;
 
 
+    // add new book to dbs
     /** @var TYPE_NAME $conn */
     $statement = $conn->prepare($query);
     $statement->execute([$newID, $katalog, $number, $title, $kategorie, $verfuegbarkeit, "", $autor, $beschreibung ,$sprache, "", "", $zustand]);
 
     header("Location: katalog.php?site=1");
+
 }
 ?>
 
@@ -55,7 +58,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
             <input type="number" min="1" max="999" placeholder="Nummer..." name="number">
             <div>
                 <select name="kategorie" class="dropdown">
-                    <option disabled selected value>Kategorie:</option>
+                    <option disabled selected>Kategorie:</option>
                     <option value="1">Alte Drucke, Bibeln</option>
                     <option value="2">Geographie und Reisen</option>
                     <option value="3">Geschichtswissenschaften</option>
@@ -71,7 +74,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
                     <option value="13">Afrika</option>
                 </select>
                 <select name="katalog" class="dropdown">
-                    <option disabled selected value>Katalog:</option>
+                    <option disabled selected>Katalog:</option>
                     <option value="10">10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
@@ -85,7 +88,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
                 </select>
             </div>
             <div>
-                <label for="verfuegbar">Verfügbar?</label>
+                <label for="verfuegbar">Verkauft?</label>
                 <input id="verfuegbar" name="verfuegbarkeit" type="checkbox">
             </div>
             <input type="text" maxlength="250" placeholder="Autor..." name="autor">
@@ -96,15 +99,15 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
                     <label for="G">Gut</label>
                     <input type="radio" value="G" name="zustand" id="G">
                     <label for="M">Mittel</label>
-                    <input type="radio" value="M" name="zustand" id="G">
+                    <input type="radio" value="M" name="zustand" id="M">
                     <label for="S">Schlecht</label>
-                    <input type="radio" value="S" name="zustand" id="G">
+                    <input type="radio" value="S" name="zustand" id="S">
                 </div>
             </div>
             <textarea maxlength="60000" placeholder="Beschreibung..." name="beschreibung" id="" cols="30" rows="10"></textarea>
             <div>
                 <a href="katalog.php?site=1">
-                    <button class="btn" onclick="closeModal()" type="button">Abbrechen</button>
+                    <button class="btn" type="button">Abbrechen</button>
                 </a>
                 <button class="btn btn-dark" type="submit">Speichern</button>
             </div>
