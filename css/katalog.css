@@ -143,9 +143,10 @@ main {
 }
 
 .site-changer {
-    width: 500px;
+    width: 800px;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin: 30px auto 0;
 }
 
