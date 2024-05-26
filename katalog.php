@@ -51,7 +51,7 @@
 ?>
 <body>
     <?php include("header.php") ?>
-    <section>
+    <main>
         <div class="search">
             <div class="search-left">
                 <div class="search-bar">
@@ -238,14 +238,16 @@
                                 $siteAfter = 1;
                             }
                         ?>
+                        <a href=<?=str_replace("site=$site", "site=1", $_SERVER["REQUEST_URI"])?>><img src="img/chevron-left.svg" alt=""></a>
                         <a href=<?=str_replace("site=$site", "site=$siteBefore", $_SERVER["REQUEST_URI"])?>><i class="fa-solid fa-angle-left"></i></a>
                         <p>Seite<?=" $site von $totalSites"?></p>
                         <a href=<?=str_replace("site=$site", "site=$siteAfter", $_SERVER["REQUEST_URI"])?>><i class="fa-solid fa-angle-right"></i></a>
+                        <a href="<?=str_replace("site=$site", "site=$totalSites", $_SERVER["REQUEST_URI"])?>"><img src="img/chevron-right.svg" alt=""></a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
     <?php include("footer.php") ?>
 </body>
 <script src="script.js"></script>
