@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "GET") {
+if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
 
     isset($_GET["id"]) ? $id = $_GET["id"] : $id = "";
 

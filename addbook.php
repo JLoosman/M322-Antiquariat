@@ -5,7 +5,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
 
     isset($_POST["title"]) ? $title = $_POST["title"] : $title = "";
     isset($_POST["number"]) ? $number = $_POST["number"] : $number = 0;
-    isset($_POST["kategorie"]) ? $kategorie = $_POST["kategorie"] : $kategorie = 0;
+    isset($_POST["kategorie"]) ? $kategorie = $_POST["kategorie"] : $kategorie = 1;
     isset($_POST["katalog"]) ? $katalog = $_POST["katalog"] : $katalog = 0;
     isset($_POST["verfuegbarkeit"]) ? $verfuegbarkeit = $_POST["verfuegbarkeit"] : $verfuegbarkeit = 0;
     isset($_POST["autor"]) ? $autor = $_POST["autor"] : $autor = "";
@@ -35,7 +35,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
 
     header("Location: katalog.php?site=1");
 
-} else {
+} else if (!isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"] == true) {
     header("Location: katalog.php?site=1");
 }
 ?>
