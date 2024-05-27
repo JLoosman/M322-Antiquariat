@@ -1,16 +1,34 @@
 <?php
 session_start();
 
+if(!isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"] == true) {
+    header("Location: ./login.php");
+}
+
+$id = $_SESSION["id"];
+$username = $_SESSION['username'];
+$name = $username;
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST["button"])) {
-        if($_POST["button"] == "changePassword") {
-            // echo "password";
-            echo (
-                "<input type='text'>
-                <input type='text'>"
-            );
-        } elseif ($_POST["button"] == "signOut") {
-            // echo "submit";
+    if (isset($_POST["button"])) {
+        if ($_POST["button"] == "changePassword") {
+            $password = $_POST["password"];
+            $confirmPassword = $_POST["confirmPassword"];
+
+            if($password == $confirmPassword) {
+                $options = [
+                    "cost" => 10
+                ];
+                $hashedPassword = password_hash($password, PASSWORD_DEFAULT, $options);
+
+                $query = "UPDATE benutzer SET passwort = ? WHERE id = ?";
+
+                include("connection.php");
+
+                $statement = $conn->prepare($query);
+                $statement->execute([$hashedPassword, $id]);
+            }
+        } else if ($_POST["button"] == "signOut") {
             $_SESSION["loggedIn"] = false;
             session_destroy();
             header("Location: index.php");
@@ -62,9 +80,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         </section>
         <section class="account">
             <h1>Account:</h1>
-            <h1>Benutzername: <?=$_SESSION["username"]?></h1>
+            <h1>Benutzername: <?=$name?></h1>
             <form action="account.php" method="post">
-                <button name=button value="changePassword" type="submit">Passwort ändern</button>
+                <label for="password">Neues Passwort:</label>
+                    <input id="password" name="password" type="password">
+                <label for="confirmPassword">Bestätige dein Passwort:</label>
+                    <input id="confirmPassword" name="confirmPassword" type="password">
+                <button name="button" type="submit" value="changePassword">Ändern</button>
+            </form>
+            <form action="account.php" method="post">
+                <button onclick="">Passwort ändern</button>
                 <button name=button value="signOut" type="submit">Abmelden</button>
             </form>
         </section>

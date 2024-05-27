@@ -16,7 +16,6 @@
         $options = [
                 "cost" => 10
         ];
-        // passwords are admin and tom
         // echo password_hash("admin", PASSWORD_DEFAULT, $options);
         // $2y$10$H123Q1rnJbTKW4rv67xvpOplcL8CwDv5r86abb7Ax3ADc0NWeCzZS
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -41,6 +40,7 @@
                     if (password_verify($passwordLogin, $passwordHash)) {
                         $_SESSION["loggedIn"] = true;
                         $_SESSION["username"] = $usernameLogin;
+                        $_SESSION["id"] = $statementRow["ID"];
                         header("Location: account.php");
                     } else {
                         echo '<div class="failedLogin">
