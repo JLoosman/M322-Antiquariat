@@ -64,8 +64,14 @@ if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["R
                 <label for="kontakt">Kontakt per Email?</label>
                 <input id="kontakt" name="kontakt" type="checkbox">
             </div>
-            <input type="date" maxlength="250" placeholder="Geburtstag..." name="date">
-            <input type="date" maxlength="250" placeholder="Kunde seit..." name="customerSince">
+            <div>
+                <label for="geburtstag">Geburtstag: </label>
+                <input id="geburtstag" type="date" maxlength="250" placeholder="Geburtstag..." name="date">
+            </div>
+            <div>
+                <label for="kundeseit">Kunde seit:</label>
+                <input id="kundeseit" type="date" maxlength="250" placeholder="Kunde seit..." name="customerSince">
+            </div>
             <div>
                 <label>Geschlecht?</label>
                 <div>

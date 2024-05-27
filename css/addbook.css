@@ -82,6 +82,7 @@ header {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .modal-frame form div input {
@@ -99,6 +100,7 @@ header {
 
 .modal-frame form div > label {
     margin-left: 5px;
+    margin-bottom: 20px;
     user-select: none;
     -webkit-user-select: none;
 }
@@ -106,6 +108,7 @@ header {
 .modal-frame form > div > div {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
     margin-bottom:  20px;
 }
 
