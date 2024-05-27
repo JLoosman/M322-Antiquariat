@@ -2,8 +2,8 @@ section {
     display: flex;
     flex-direction: column;
     padding: 50px;
-    /* background: linear-gradient(210deg, #71AADE, #094D8D 70%);  */
-    background: url("../img/bg.png") top left / 100vw 100vh no-repeat;
+    background: linear-gradient(210deg, #71AADE, #094D8D 70%);
+    /*  background: url("../img/bg.png") top left / 100vw 100vh no-repeat; */
     z-index: -1;
 }
 
@@ -132,6 +132,5 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.2);
     z-index: -1;
 }

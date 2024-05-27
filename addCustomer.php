@@ -76,14 +76,12 @@ if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["R
                 </div>
             </div>
             <div>
-                <a href="kunden.php?site=1">
-                    <button class="btn" type="button">Abbrechen</button>
-                </a>
+                <button onclick="history.back()" class="btn" type="button">Abbrechen</button>
                 <button class="btn btn-dark" type="submit">Speichern</button>
             </div>
         </form>
     </div>
-    <a href="katalog.php?site=1" id="overlay"></a>
+    <a onclick="history.back()" id="overlay"></a>
 </section>
 </body>
 </html>
