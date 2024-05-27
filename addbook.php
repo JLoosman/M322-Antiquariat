@@ -49,7 +49,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/addbook.css">
-    <title>Document</title>
+    <title>Bücher</title>
 </head>
 <body>
 <section id="modal">

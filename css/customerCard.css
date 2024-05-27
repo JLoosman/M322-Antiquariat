@@ -1,6 +1,6 @@
 .card {
     margin: 20px 30px;
-
+    position: relative;
 }
 
 .card-background {
@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-.card svg {
+.card-background svg {
     width: 200px;
     object-fit: cover;
 }
@@ -23,4 +23,36 @@
 
 .card h4 {
     margin-top: 5px;
+}
+
+.edit {
+    display: none;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 15px;
+    left: 15px;
+}
+
+.delete {
+    display: none;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 15px;
+    right: 15px;
+}
+
+.card:hover > .edit, .edit:hover, .card:hover > .delete, .delete:hover {
+    display: block;
+}
+
+.fadeIn {
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    50% {opacity: 0}
+    100% {opacity: 1}
 }
