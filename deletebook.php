@@ -1,9 +1,10 @@
 <?php
 session_start();
+include("testInput.php");
 
 if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
 
-    isset($_GET["id"]) ? $id = $_GET["id"] : $id = "";
+    isset($_GET["id"]) ? $id = test_input($_GET["id"]) : $id = "";
 
     $query = "DELETE FROM buecher WHERE id = ?";
 

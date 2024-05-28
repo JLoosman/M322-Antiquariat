@@ -1,17 +1,17 @@
 <?php
 session_start();
+include("testInput.php");
 
 if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "POST"){
 
-    isset($_POST["id"]) ? $id = $_POST["id"] : $id = "";
-
-    isset($_POST["firstname"]) ? $firstname = $_POST["firstname"] : $firstname = "";
-    isset($_POST["lastname"]) ? $lastname = $_POST["lastname"] : $lastname = "";
-    isset($_POST["email"]) ? $email = $_POST["email"] : $email = "";
-    isset($_POST["kontakt"]) ? $kontakt = $_POST["kontakt"] : $kontakt = 0;
-    isset($_POST["date"]) ? $date = $_POST["date"] : $date = "";
-    isset($_POST["customerSince"]) ? $customerSince = $_POST["customerSince"] : $customerSince = "";
-    isset($_POST["gender"]) ? $gender = $_POST["gender"] : $gender = "M";
+    isset($_POST["id"]) ? $id = test_input($_POST["id"]) : $id = "";
+    isset($_POST["firstname"]) ? $firstname = test_input($_POST["firstname"]) : $firstname = "";
+    isset($_POST["lastname"]) ? $lastname = test_input($_POST["lastname"]) : $lastname = "";
+    isset($_POST["email"]) ? $email = test_input($_POST["email"]) : $email = "";
+    isset($_POST["kontakt"]) ? $kontakt = test_input($_POST["kontakt"]) : $kontakt = 0;
+    isset($_POST["date"]) ? $date = test_input($_POST["date"]) : $date = "";
+    isset($_POST["customerSince"]) ? $customerSince = test_input($_POST["customerSince"]) : $customerSince = "";
+    isset($_POST["gender"]) ? $gender = test_input($_POST["gender"]) : $gender = "M";
 
     $kontakt = $kontakt == "on" ? 1 : 0;
 
@@ -30,7 +30,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
     header("Location: kunden.php?site=1");
 
 } else if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])){
-    $id = $_GET["id"];
+    $id = test_input($_GET["id"]);
 
     include("connection.php");
     $statement = $conn->prepare("SELECT * FROM kunden WHERE kid = ?");

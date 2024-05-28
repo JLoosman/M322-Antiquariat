@@ -10,10 +10,13 @@ $username = $_SESSION['username'];
 $name = $username;
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    include("testInput.php");
+
     if (isset($_POST["button"])) {
         if ($_POST["button"] == "changePassword") {
-            $password = $_POST["password"];
-            $confirmPassword = $_POST["confirmPassword"];
+            $password = test_input($_POST["password"]);
+            $confirmPassword = test_input($_POST["confirmPassword"]);
 
             if($password == $confirmPassword) {
                 $options = [

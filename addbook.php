@@ -1,17 +1,18 @@
 <?php
 session_start();
+include("testInput.php");
 
 if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "POST"){
 
-    isset($_POST["title"]) ? $title = $_POST["title"] : $title = "";
-    isset($_POST["number"]) ? $number = $_POST["number"] : $number = 0;
-    isset($_POST["kategorie"]) ? $kategorie = $_POST["kategorie"] : $kategorie = 1;
-    isset($_POST["katalog"]) ? $katalog = $_POST["katalog"] : $katalog = 0;
-    isset($_POST["verfuegbarkeit"]) ? $verfuegbarkeit = $_POST["verfuegbarkeit"] : $verfuegbarkeit = 0;
-    isset($_POST["autor"]) ? $autor = $_POST["autor"] : $autor = "";
-    isset($_POST["sprache"]) ? $sprache = $_POST["sprache"] : $sprache = "";
-    isset($_POST["zustand"]) ? $zustand = $_POST["zustand"] : $zustand = "";
-    isset($_POST["beschreibung"]) ? $beschreibung = $_POST["beschreibung"] : $beschreibung = "";
+    isset($_POST["title"]) ? $title = test_input($_POST["title"]) : $title = "";
+    isset($_POST["number"]) ? $number = test_input($_POST["number"]) : $number = 0;
+    isset($_POST["kategorie"]) ? $kategorie = test_input($_POST["kategorie"]) : $kategorie = 1;
+    isset($_POST["katalog"]) ? $katalog = test_input($_POST["katalog"]) : $katalog = 0;
+    isset($_POST["verfuegbarkeit"]) ? $verfuegbarkeit = test_input($_POST["verfuegbarkeit"]) : $verfuegbarkeit = 0;
+    isset($_POST["autor"]) ? $autor = test_input($_POST["autor"]) : $autor = "";
+    isset($_POST["sprache"]) ? $sprache = test_input($_POST["sprache"]) : $sprache = "";
+    isset($_POST["zustand"]) ? $zustand = test_input($_POST["zustand"]) : $zustand = "";
+    isset($_POST["beschreibung"]) ? $beschreibung = test_input($_POST["beschreibung"]) : $beschreibung = "";
 
     $verfuegbarkeit = $verfuegbarkeit == "on" ? 1 : 0;
 
