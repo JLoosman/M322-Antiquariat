@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if(!isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"] == true){
+    if(!isset($_SESSION["isAdmin"]) && !$_SESSION["isAdmin"] == true){
         header("Location: login.php");
     }
 ?>

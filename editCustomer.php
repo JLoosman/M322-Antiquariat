@@ -2,7 +2,7 @@
 session_start();
 include("testInput.php");
 
-if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "POST"){
+if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == true && $_SERVER["REQUEST_METHOD"] == "POST"){
 
     isset($_POST["id"]) ? $id = test_numeric($_POST["id"]) : $id = "";
     isset($_POST["firstname"]) ? $firstname = test_input($_POST["firstname"]) : $firstname = "";
@@ -29,7 +29,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
 
     header("Location: kunden.php?site=1");
 
-} else if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])){
+} else if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == true && $_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])){
     $id = test_numeric($_GET["id"]);
 
     include("connection.php");

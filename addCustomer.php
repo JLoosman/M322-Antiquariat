@@ -2,7 +2,7 @@
 session_start();
 include("testInput.php");
 
-if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == true && $_SERVER["REQUEST_METHOD"] == "POST") {
 
     isset($_POST["firstname"]) ? $firstname = test_input($_POST["firstname"]) : $firstname = "";
     isset($_POST["lastname"]) ? $lastname = test_input($_POST["lastname"]) : $lastname = "";
@@ -35,7 +35,7 @@ if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["R
 
     header("Location: kunden.php?site=1");
 
-} else if (!isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"] == true) {
+} else if (!isset($_SESSION["isAdmin"]) && !$_SESSION["isAdmin"] == true) {
     header("Location: kunden.php?site=1");
 }
 ?>

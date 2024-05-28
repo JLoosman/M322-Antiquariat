@@ -2,7 +2,7 @@
 session_start();
 
 // if user isnt logged in redirect to login page
-if(!isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"]) {
+if(!((isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) || (isset($_SESSION["isUser"]) && $_SESSION["isUser"]))) {
     header("Location: ./login.php");
 }
 
@@ -34,13 +34,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         // if user wants to sign out of his account
         } else if ($_POST["button"] == "signOut") {
-            $_SESSION["loggedIn"] = false;
+            $_SESSION["isAdmin"] = false;
             session_destroy();
             header("Location: index.php");
 
         // if user wants to delete his account
         } else if ($_POST["button"] == "deleteAcc") {
-            $_SESSION["loggedIn"] = false;
+            $_SESSION["isAdmin"] = false;
             session_destroy();
 
             include("connection.php");

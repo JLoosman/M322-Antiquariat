@@ -52,7 +52,7 @@
                     </form>
                 </div>
                 <?php
-                    if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
+                    if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == true) {
                         echo '
                             <a href="addbook.php">
                                 <svg width="36" height="40" viewBox="0 0 36 40" fill="none" xmlns="http://www.w3.org/2000/svg">

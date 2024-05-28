@@ -27,7 +27,7 @@
         <h4>CHF <?=$_SESSION["prices"][$count]?>.00</h4>
     </a>
     <?php
-        if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
+        if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == true) {
             echo
             '
             <a href="editbook.php?id=' . $id . '" class="edit fadeIn">

@@ -9,7 +9,7 @@
         <h4><?=$id?></h4>
     </div>
     <?php
-        if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
+        if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == true) {
             echo
             '
             <a href="editCustomer.php?id=' . $id . '" class="edit fadeIn">

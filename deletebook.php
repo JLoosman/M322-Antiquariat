@@ -2,7 +2,7 @@
 session_start();
 include("testInput.php");
 
-if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true) {
+if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == true) {
 
     isset($_GET["id"]) ? $id = test_input($_GET["id"]) : $id = "";
 

@@ -1,12 +1,16 @@
 <?php
-if(isset($_SESSION["loggedIn"])) {
-    if($_SESSION["loggedIn"]) {
-        $loggedIn = true;
-    } else {
-        $loggedIn = false;
+if(isset($_SESSION["isAdmin"]) || isset($_SESSION["isUser"])) {
+    if((isset($_SESSION["isAdmin"]) && $_SESSION['isAdmin']) || (isset($_SESSION["isUser"]) && $_SESSION['isUser'])) {
+        $isLoggedIn = true;
+        if(isset($_SESSION["isAdmin"]) && $_SESSION['isAdmin']) {
+            $isAdmin = true;
+        } else {
+            $isAdmin = false;
+        }
     }
 } else {
-    $loggedIn = false;
+    $isLoggedIn = false;
+    $isAdmin = false;
 }
 
 // use different css stylesheet for different implementation of the header.php file
@@ -28,9 +32,9 @@ if(basename($_SERVER['PHP_SELF'])  == "katalog.php" || basename($_SERVER['PHP_SE
         <a href="index.php" class="nav-item">myLibrary</a>
     </div>
     <div class="group">
-        <?= $loggedIn ? '<a href="kunden.php?site=1" class="nav-item">Kunden</a>' : ""?>
+        <?= $isAdmin ? '<a href="kunden.php?site=1" class="nav-item">Kunden</a>' : ""?>
         <a href="katalog.php?site=1" class="nav-item">Katalog</a>
         <a href="aboutus.php" class="nav-item">Über Uns</a>
-        <a href=<?=$loggedIn ? "account.php" : "login.php"?> class="nav-item"><?=$loggedIn ? "My Account" : "Log In"?></a>
+        <a href=<?=$isLoggedIn ? "account.php" : "login.php"?> class="nav-item"><?=$isLoggedIn ? "My Account" : "Log In"?></a>
     </div>
 </header>

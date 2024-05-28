@@ -3,7 +3,7 @@ session_start();
 include("testInput.php");
 
 // if user isnt logged in and method isnt post redirect away from this page
-if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] && $_SERVER["REQUEST_METHOD"] == "POST"){
+if(isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] && $_SERVER["REQUEST_METHOD"] == "POST"){
 
     // get data from form
     isset($_POST["id"]) ? $id = test_numeric($_POST["id"]) : $id = "";
@@ -34,7 +34,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] && $_SERVER["REQUEST_ME
 
     header("Location: katalog.php?site=1");
 
-} else if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])){
+} else if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == true && $_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])){
     $id = test_numeric($_GET["id"]);
 
     include("connection.php");

@@ -40,7 +40,11 @@
                     $passwordHash = $statementRow["passwort"];
 
                     if (password_verify($passwordLogin, $passwordHash)) {
-                        $_SESSION["loggedIn"] = true;
+                        if($statementRow["admin"] == "1") {
+                            $_SESSION["isAdmin"] = true;
+                        } else {
+                            $_SESSION["isUser"] = true;
+                        }
                         $_SESSION["username"] = $usernameLogin;
                         $_SESSION["id"] = $statementRow["ID"];
                         header("Location: account.php");
