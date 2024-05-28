@@ -5,7 +5,7 @@ include("testInput.php");
 if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "POST"){
 
     isset($_POST["title"]) ? $title = test_input($_POST["title"]) : $title = "";
-    isset($_POST["number"]) ? $number = test_input($_POST["number"]) : $number = 0;
+    isset($_POST["number"]) ? $number = test_numeric($_POST["number"]) : $number = 0;
     isset($_POST["kategorie"]) ? $kategorie = test_input($_POST["kategorie"]) : $kategorie = 1;
     isset($_POST["katalog"]) ? $katalog = test_input($_POST["katalog"]) : $katalog = 0;
     isset($_POST["verfuegbarkeit"]) ? $verfuegbarkeit = test_input($_POST["verfuegbarkeit"]) : $verfuegbarkeit = 0;
@@ -58,7 +58,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
         <h1>Buch hinzufügen</h1>
         <form action="addbook.php" method="post">
             <input required type="text" maxlength="250" placeholder="Titel..." name="title">
-            <input type="number" min="1" max="999" placeholder="Nummer..." name="number">
+            <input required type="number" min="1" max="999" placeholder="Nummer..." name="number">
             <div>
                 <select name="kategorie" class="dropdown">
                     <option disabled selected>Kategorie:</option>
@@ -94,7 +94,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
                 <label for="verfuegbar">Verkauft?</label>
                 <input id="verfuegbar" name="verfuegbarkeit" type="checkbox">
             </div>
-            <input type="text" maxlength="250" placeholder="Autor..." name="autor">
+            <input required type="text" maxlength="250" placeholder="Autor..." name="autor">
             <input type="text" maxlength="250" placeholder="Sprache..." name="sprache">
             <div>
                 <label>Zustand?</label>

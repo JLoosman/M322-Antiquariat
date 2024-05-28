@@ -1,18 +1,19 @@
 <?php
 session_start();
 
-if(!isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"] == true) {
+// if user isnt logged in redirect to login page
+if(!isset($_SESSION["loggedIn"]) && !$_SESSION["loggedIn"]) {
     header("Location: ./login.php");
 }
 
+// get important data from user, passed to session in login.php
 $id = $_SESSION["id"];
-$username = $_SESSION['username'];
-$name = $username;
+$name = $_SESSION['username'];
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-
     include("testInput.php");
 
+    // if form wants to change the password
     if (isset($_POST["button"])) {
         if ($_POST["button"] == "changePassword") {
             $password = test_input($_POST["password"]);
@@ -31,10 +32,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $statement = $conn->prepare($query);
                 $statement->execute([$hashedPassword, $id]);
             }
+        // if user wants to sign out of his account
         } else if ($_POST["button"] == "signOut") {
             $_SESSION["loggedIn"] = false;
             session_destroy();
             header("Location: index.php");
+
+        // if user wants to delete his account
         } else if ($_POST["button"] == "deleteAcc") {
             $_SESSION["loggedIn"] = false;
             session_destroy();
@@ -105,9 +109,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h1>Passwort ändern:</h1>
                 <form action="account.php" method="post">
                     <label for="password">Neues Passwort:</label>
-                    <input id="password" name="password" type="password">
+                    <input id="password" name="password" type="password" minlength="8">
                     <label for="confirmPassword">Bestätige dein Passwort:</label>
-                    <input id="confirmPassword" name="confirmPassword" type="password">
+                    <input id="confirmPassword" name="confirmPassword" type="password" minlength="8">
                     <button name="button" type="submit" value="changePassword">Ändern</button>
                 </form>
             </div>

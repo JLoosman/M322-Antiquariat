@@ -19,6 +19,7 @@
                 "cost" => 10
         ];
 
+        // login via form, hashing the password and comparing it to database
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(isset($_POST["username"]) && isset($_POST["password"])) {
                 $usernameLogin = test_input($_POST["username"]);
@@ -37,7 +38,7 @@
 
                 if(isset($statementRow["passwort"])) {
                     $passwordHash = $statementRow["passwort"];
-                    // echo $passwordHash;
+
                     if (password_verify($passwordLogin, $passwordHash)) {
                         $_SESSION["loggedIn"] = true;
                         $_SESSION["username"] = $usernameLogin;

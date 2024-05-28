@@ -34,7 +34,7 @@
     if(!isset($_GET["site"])) {
         $site = 1;
     } else {
-        $site = test_input($_GET["site"]);
+        $site = test_numeric($_GET["site"]);
         if ($site < 1) {
            header("Location: katalog.php?site=1");
         }

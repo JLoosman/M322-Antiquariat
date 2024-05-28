@@ -2,9 +2,11 @@
 session_start();
 include("testInput.php");
 
-if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "POST"){
+// if user isnt logged in and method isnt post redirect away from this page
+if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] && $_SERVER["REQUEST_METHOD"] == "POST"){
 
-    isset($_POST["id"]) ? $id = test_input($_POST["id"]) : $id = "";
+    // get data from form
+    isset($_POST["id"]) ? $id = test_numeric($_POST["id"]) : $id = "";
     isset($_POST["title"]) ? $title = test_input($_POST["title"]) : $title = "";
     isset($_POST["number"]) ? $number = test_input($_POST["number"]) : $number = 0;
     isset($_POST["kategorie"]) ? $kategorie = test_input($_POST["kategorie"]) : $kategorie = 0;
@@ -33,7 +35,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
     header("Location: katalog.php?site=1");
 
 } else if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])){
-    $id = test_input($_GET["id"]);
+    $id = test_numeric($_GET["id"]);
 
     include("connection.php");
     $statement = $conn->prepare("SELECT * FROM buecher WHERE id = ?");
@@ -41,6 +43,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["RE
 
     $row = $statement->fetch();
 
+    // get data from database to fill in form
     $title = $row["kurztitle"];
     $number = $row["nummer"];
     $kategorie = $row["kategorie"];

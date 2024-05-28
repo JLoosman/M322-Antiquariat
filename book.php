@@ -23,7 +23,7 @@
         /** @var TYPE_NAME $conn */
         $statement = $conn->prepare("SELECT * FROM buecher WHERE id = :id");
 
-        $statement->execute(["id" => test_input($_GET['id'])]);
+        $statement->execute(["id" => test_numeric($_GET['id'])]);
 
         $row = $statement->fetch();
 

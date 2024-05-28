@@ -6,7 +6,7 @@ if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["R
 
     isset($_POST["firstname"]) ? $firstname = test_input($_POST["firstname"]) : $firstname = "";
     isset($_POST["lastname"]) ? $lastname = test_input($_POST["lastname"]) : $lastname = "";
-    isset($_POST["email"]) ? $email = test_input($_POST["email"]) : $email = "";
+    isset($_POST["email"]) ? $email = test_email($_POST["email"]) : $email = "";
     isset($_POST["kontakt"]) ? $kontakt = test_input($_POST["kontakt"]) : $kontakt = 0;
     isset($_POST["date"]) ? $date = test_input($_POST["date"]) : $date = "";
     isset($_POST["customerSince"]) ? $customerSince = test_input($_POST["customerSince"]) : $customerSince = "";
@@ -66,17 +66,17 @@ if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] == true && $_SERVER["R
             </div>
             <div>
                 <label for="geburtstag">Geburtstag: </label>
-                <input id="geburtstag" type="date" maxlength="250" placeholder="Geburtstag..." name="date">
+                <input required id="geburtstag" type="date" maxlength="250" placeholder="Geburtstag..." name="date">
             </div>
             <div>
                 <label for="kundeseit">Kunde seit:</label>
-                <input id="kundeseit" type="date" maxlength="250" placeholder="Kunde seit..." name="customerSince">
+                <input required id="kundeseit" type="date" maxlength="250" placeholder="Kunde seit..." name="customerSince">
             </div>
             <div>
                 <label>Geschlecht?</label>
                 <div>
                     <label for="M">M</label>
-                    <input type="radio" value="M" name="gender" id="M">
+                    <input checked type="radio" value="M" name="gender" id="M">
                     <label for="F">F</label>
                     <input type="radio" value="F" name="gender" id="F">
                 </div>

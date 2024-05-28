@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// register new User via form and send it to database
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     include("testInput.php");
 
@@ -42,8 +43,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <div class="login-form">
                 <h1>Register</h1>
                 <form action="register.php" method="post">
-                    <input name="username" placeholder="Benutzername..." type="text">
-                    <input name="password" placeholder="Passwort..." type="password">
+                    <input required name="username" placeholder="Benutzername..." type="text">
+                    <input required name="password" placeholder="Passwort..." type="password" minlength="8">
                     <button type="submit">Register</button>
                 </form>
                 <div class="options">
