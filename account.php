@@ -18,13 +18,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $password = test_input($_POST["password"]);
             $confirmPassword = test_input($_POST["confirmPassword"]);
 
-            if($password == $confirmPassword) {
+            if ($password == $confirmPassword) {
                 $options = [
                     "cost" => 10
                 ];
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT, $options);
 
-                $query = "UPDATE benutzer SET passwort = ? WHERE id = ?";
+                $query = "UPDATE benutzer SET passwort = ? WHERE ID = ?";
 
                 include("connection.php");
 
@@ -34,6 +34,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         } else if ($_POST["button"] == "signOut") {
             $_SESSION["loggedIn"] = false;
             session_destroy();
+            header("Location: index.php");
+        } else if ($_POST["button"] == "deleteAcc") {
+            $_SESSION["loggedIn"] = false;
+            session_destroy();
+
+            include("connection.php");
+
+            $query = "DELETE FROM benutzer WHERE ID = ?";
+
+            $statement = $conn->prepare($query);
+            $statement->execute([$id]);
+
             header("Location: index.php");
         }
     }
@@ -82,19 +94,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
         </section>
         <section class="account">
-            <h1>Account:</h1>
-            <h1>Benutzername: <?=$name?></h1>
-            <form action="account.php" method="post">
-                <label for="password">Neues Passwort:</label>
+            <div class="left">
+                <h1>Benutzername: <?=$name?></h1>
+                <form action="account.php" method="post">
+                    <button name="button" value="deleteAcc" type="submit">Account löschen</button>
+                    <button name=button value="signOut" type="submit">Abmelden</button>
+                </form>
+            </div>
+            <div class="right">
+                <h1>Passwort ändern:</h1>
+                <form action="account.php" method="post">
+                    <label for="password">Neues Passwort:</label>
                     <input id="password" name="password" type="password">
-                <label for="confirmPassword">Bestätige dein Passwort:</label>
+                    <label for="confirmPassword">Bestätige dein Passwort:</label>
                     <input id="confirmPassword" name="confirmPassword" type="password">
-                <button name="button" type="submit" value="changePassword">Ändern</button>
-            </form>
-            <form action="account.php" method="post">
-                <button onclick="">Passwort ändern</button>
-                <button name=button value="signOut" type="submit">Abmelden</button>
-            </form>
+                    <button name="button" type="submit" value="changePassword">Ändern</button>
+                </form>
+            </div>
         </section>
     </main>
 </body>

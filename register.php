@@ -1,3 +1,28 @@
+<?php
+session_start();
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    include("testInput.php");
+
+    $userName = test_input($_POST['username']);
+    $formPassword = test_input($_POST['password']);
+
+    $options = [
+        "cost" => 10
+    ];
+    $hashedPassword = password_hash($formPassword, PASSWORD_DEFAULT, $options);
+
+    include("connection.php");
+
+    $query = "INSERT INTO `benutzer` (`benutzername`, `passwort`) VALUES (?, ?)";
+
+    $statement = $conn->prepare($query);
+    $statement->execute([$userName, $hashedPassword]);
+
+    header("Location: login.php");
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,13 +41,13 @@
         <div class="center">
             <div class="login-form">
                 <h1>Register</h1>
-                <form action="">
-                    <input placeholder="Benutzername..." type="text">
-                    <input placeholder="Passwort..."type="text">
-                    <button>Register</button>
+                <form action="register.php" method="post">
+                    <input name="username" placeholder="Benutzername..." type="text">
+                    <input name="password" placeholder="Passwort..." type="password">
+                    <button type="submit">Register</button>
                 </form>
                 <div class="options">
-                    <a href="">Sie haben bereits einen Account?</a>
+                    <a href="login.php">Sie haben bereits einen Account?</a>
                     <a href="login.php">Login</a>
                 </div>
             </div>

@@ -13,11 +13,15 @@ section {
     width: 100%;
 }
 
-.account > * {
-    margin: 20px;
+.account {
+    margin: 20px 22vw;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
 }
 
-.dashboard {
+.account > * {
+    margin: 20px;
 }
 
 .container {
@@ -42,6 +46,45 @@ section {
 .box > .count {
     font-size: 70px;
     margin-top: 30px;
+}
+
+.left, .right {
+    border: #434343 dotted 2px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.left, .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 30px;
+}
+
+.left > *, .right > * {
+    margin: 10px;
+}
+
+.left > form, .right > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.left > form > button, .right > form > button {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.right > form > label {
+    margin-bottom: 10px;
+}
+
+.right > form > input {
+    margin-bottom: 20px;
+    padding: 5px;
+    border: #434343 dotted 2px;
+    border-radius: 10px;
 }
 
 button {
