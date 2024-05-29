@@ -7,6 +7,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $userName = test_input($_POST['username']);
     $formPassword = test_input($_POST['password']);
+    $isAdmin = $_POST['isAdmin'];
+
+    $isAdmin = $isAdmin == "on" ? 1 : 0;
 
     $options = [
         "cost" => 10
@@ -15,10 +18,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     include("connection.php");
 
-    $query = "INSERT INTO `benutzer` (`benutzername`, `passwort`) VALUES (?, ?)";
+    $query = "INSERT INTO `benutzer` (`benutzername`, `passwort`, `admin`) VALUES (?, ?, ?)";
 
     $statement = $conn->prepare($query);
-    $statement->execute([$userName, $hashedPassword]);
+    $statement->execute([$userName, $hashedPassword, $isAdmin]);
 
     header("Location: login.php");
 }
@@ -45,6 +48,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <form action="register.php" method="post">
                     <input required name="username" placeholder="Benutzername..." type="text">
                     <input required name="password" placeholder="Passwort..." type="password" minlength="8">
+                    <div>
+                        <label for="isAdmin">Admin?</label>
+                        <input id="isAdmin" name="isAdmin" type="checkbox">
+                    </div>
                     <button type="submit">Register</button>
                 </form>
                 <div class="options">

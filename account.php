@@ -10,6 +10,12 @@ if(!((isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"]) || (isset($_SESSION["
 $id = $_SESSION["id"];
 $name = $_SESSION['username'];
 
+if(isset($_SESSION["isAdmin"])) {
+    $accType = $_SESSION["isAdmin"] == true ? "Admin" : "User";
+} else {
+    $accType = $_SESSION["isUser"] == true ? "User" : "Admin";
+}
+
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     include("testInput.php");
 
@@ -35,12 +41,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         // if user wants to sign out of his account
         } else if ($_POST["button"] == "signOut") {
             $_SESSION["isAdmin"] = false;
+            $_SESSION["isUser"] = false;
             session_destroy();
             header("Location: index.php");
 
         // if user wants to delete his account
         } else if ($_POST["button"] == "deleteAcc") {
             $_SESSION["isAdmin"] = false;
+            $_SESSION["isUser"] = false;
             session_destroy();
 
             include("connection.php");
@@ -100,6 +108,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="account">
             <div class="left">
                 <h1>Benutzername: <?=$name?></h1>
+                <h1>Accountart: <?=$accType?></h1>
                 <form action="account.php" method="post">
                     <button name="button" value="deleteAcc" type="submit">Account löschen</button>
                     <button name=button value="signOut" type="submit">Abmelden</button>

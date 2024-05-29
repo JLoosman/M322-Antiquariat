@@ -48,6 +48,19 @@ h1 {
     padding: 20px;
 }
 
+.login-form form div {
+    padding: 0 5px;
+    width: 25vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.login-form form div input {
+    height: 20px;
+    width: 20px;
+}
+
 .login-form form input:focus {
     outline: none;
 }
